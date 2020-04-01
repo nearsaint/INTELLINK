@@ -1,0 +1,663 @@
+<template>
+<div class="cards">
+  <div class="getTing" v-if="list.getTing">
+    <div>
+      <h5>获取数据中,请稍后</h5>
+    </div>
+  </div>
+  <div class="noGet" v-if="list.noGet">
+    <div>
+      <h5>没获取到任何数据</h5>
+      <a @click="getList()">刷新</a>
+    </div>
+  </div>
+  <div class="list listContainer" v-if="!list.getTing && !list.noGet">
+    <div class="toptools">
+      <el-button type="primary" size="small" @click="openModel" v-if="$store.state.user.jurisdiction.AddCard">添加卡片</el-button>
+    </div>
+    <div class="title">
+      <ul>
+        <li class="num">序号</li>
+        <li class="code">卡号</li>
+        <li class="status">卡状态</li>
+        <li class="police">警员</li>
+        <li class="btn">操作</li>
+      </ul>
+    </div>
+    <div class="content">
+      <ul v-for="(item,index) in list.data">
+        <li class="num">{{(index + 1) + (list.limit * (list.offset-1))}}</li>
+        <li class="code">{{item.CardNo}}</li>
+        <li class="status">正常</li>
+        <li class="police">{{item.PoliceName}}</li>
+        <li class="btn">
+          <a class="btn_role" @click="openModel_q(item)" v-if="$store.state.user.jurisdiction.AuthorizeCard">授权</a>
+          <a @click="openModel2(item)" v-if="$store.state.user.jurisdiction.EditCard">编辑卡片</a></li>
+        </li>
+      </ul>
+    </div>
+    <div class="bottomtools">
+      <el-button type="primary" size="small" @click="openModel" v-if="$store.state.user.jurisdiction.AddCard">添加卡片</el-button>
+      <el-pagination v-if="list.total>list.limit" background layout="total, prev, pager, next" :page-size="list.limit" :total="list.total" :current-page.sync="list.offset" @current-change="getList">
+      </el-pagination>
+      <!--  -->
+    </div>
+  </div>
+  <!-- end .list -->
+
+  <div v-show="model.show" class="model">
+    <a class="bg" @click="clearModel"></a>
+    <a class="btn" @click="clearModel"><i class="fa fa-times" aria-hidden="true"></i></a>
+    <div class="modelBox  animated fadeInDown">
+      <el-button v-if="model.createState==false && $store.state.user.jurisdiction.DeleteCard" class="del" type="danger" round size="small" @click="delCard()">删除此卡片</el-button>
+      <div class="title">
+        <i></i>
+        <h5>{{model.title}}</h5>
+      </div>
+      <div class="content">
+        <div class="steps">
+          <el-steps :active="model.step" finish-status="success">
+            <el-step title="读写卡片"></el-step>
+            <el-step title="填写用户信息"></el-step>
+            <el-step title="完成"></el-step>
+          </el-steps>
+        </div>
+
+        <div class="object" v-show="model.step==0">
+          <ul class="input">
+            <li><span></span>
+              <div class="recard">
+                <h5>{{cardNum()}}</h5>
+              </div>
+            </li>
+            <li><span>区域号 (0-255):</span>
+              <div class="input">
+                <el-input size="medium" maxlength="3" placeholder="请输入区域号" v-model="model.input.code1" :onchange="inputOnchange_code1()" ref="code1">
+                </el-input>
+              </div>
+            </li>
+            <li><span>流水号 (1-65535):</span>
+              <div class="input">
+                <el-input size="medium" maxlength="5" placeholder="请输入流水号" v-model="model.input.code2" :onchange="inputOnchange_code2()" ref="code2">
+                </el-input>
+              </div>
+            </li>
+            <!-- <li><span>卡座:</span>
+              <div class="input">
+                <el-select size="medium" v-model="model.input.position" placeholder="请选择卡座" ref="position">
+                  <el-option key="0" label="卡座1" value="0"></el-option>
+                  <el-option key="1" label="卡座2" value="1"></el-option>
+                  <el-option key="2" label="卡座3" value="2"></el-option>
+                </el-select>
+              </div>
+            </li>
+            <li><span>操作:</span>
+              <div class="input">
+                <el-select size="medium" v-model="model.input.edit" placeholder="请选择操作" ref="edit">
+                  <el-option key="0" label="发白卡" value="0"></el-option>
+                  <el-option key="1" label="写卡" value="1"></el-option>
+                </el-select>
+              </div>
+            </li> -->
+          </ul>
+        </div>
+        <div class="object" v-show="model.step==1">
+          <ul class="input">
+            <li><span>警员名:</span>
+              <div class="input">
+                <el-select v-model="model.input.police" filterable placeholder="请选择警员">
+                  <el-option v-for="(item, index) in model.input.polices" :key="index" :label="item.UserName" :value="item.Id">
+                  </el-option>
+                </el-select>
+              </div>
+            </li>
+            <li><span>状态:</span>
+              <div class="input">
+                <el-select size="medium" v-model="model.input.state" placeholder="请选择状态">
+                  <el-option key="0" label="正常" value="0"></el-option>
+                  <el-option key="1" label="挂失" value="1"></el-option>
+                  <el-option key="2" label="注销" value="2"></el-option>
+                </el-select>
+              </div>
+            </li>
+            <li><span>备注:</span>
+              <div class="input">
+                <el-input type="textarea" :autosize="{ minRows: 4, maxRows: 8}" placeholder="请输入备注" v-model="model.input.description">
+                </el-input>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer ">
+        <el-button type="info " v-show="model.step==0 && model.createState==false" size="medium" @click="model.step=1">跳过</el-button>
+        <el-button type="info " plain size="medium " @click="clearModel">取消</el-button>
+        <el-button type="primary " v-show="model.step==0" size="medium " :loading="this.model.btnLoading_writeCard" @click="writeCard()">写入卡片</el-button>
+        <el-button type="primary " v-show="model.step==1" size="medium " :loading="this.model.btnLoading_submit" @click="cardSubmit()">确定提交</el-button>
+      </div>
+    </div>
+  </div>
+
+  <div v-show="model2.show" class="model">
+    <a class="bg" @click="closeModel_q"></a>
+    <a class="btn" @click="closeModel_q"><i class="fa fa-times" aria-hidden="true"></i></a>
+    <div class="modelBox  animated fadeInDown">
+      <div class="title">
+        <i></i>
+        <h5>授权卡片</h5>
+      </div>
+      <div class="content">
+        <div class="object">
+          <ul class="input">
+            <li><span>卡号:</span>
+              <div class="input">
+                <el-input size="medium" v-model="model2.input.cardNum" disabled>
+                </el-input>
+              </div>
+            </li>
+            <li><span>警员名:</span>
+              <div class="input">
+                <el-input size="medium" v-model="model2.input.policeName" disabled>
+                </el-input>
+              </div>
+            </li>
+            <li><span>控制器选择:</span>
+              <div class="input">
+                <el-checkbox-group v-model="model2.input.dataChecked" size="small">
+                  <el-checkbox border v-for="(item,index) in model2.input.data" :label="item.Value" :checked="item.IsChecked">{{item.Description}}</el-checkbox>
+                </el-checkbox-group>
+              </div>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+      <div class="footer ">
+        <el-button type="info " plain size="medium " @click="closeModel_q">取消</el-button>
+        <el-button type="primary " size="medium " :loading="this.model2.btnLoading_submit" @click="submit_q">确定提交</el-button>
+      </div>
+    </div>
+  </div>
+</div>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      list: {
+        data: [],
+        offset: 1,
+        limit: 10,
+        total: 1,
+        getTing: true,
+        noGet: false,
+      },
+      model: {
+        step: 0,
+        show: false,
+        title: '添加卡片',
+        btnLoading_writeCard: false,
+        btnLoading_submit: false,
+        createState: true,
+        btnLoading_delete: false,
+        input: {
+          id: '',
+          code1: '',
+          code2: '',
+          code: '',
+          edit: '',
+          position: '',
+          description: '',
+          state: "0",
+          police: '',
+          polices: [],
+        },
+      },
+
+      model2: {
+        show: false,
+        btnLoading_submit: false,
+        input: {
+          id: '',
+          policeName: '',
+          cardNum: '',
+          data: [],
+          dataChecked: [],
+        },
+      },
+    }
+  },
+  beforeCreate: function() {},
+  created: function() {
+    this.getList();
+    this.getPolices();
+    this.getJurisdiction();
+  },
+  mounted: function() {},
+  beforeDestroy: function() {},
+  destroyed: function() {},
+  methods: {
+
+    getJurisdiction: function() {
+      if (!this.$store.state.user.jurisdiction.QueryCard) {
+        this.$message({
+          message: "非法操作!您的账号权限等级不够,请检查账号或者联系管理者",
+          type: 'warning'
+        });
+        this.$router.push('/');
+      }
+    },
+    // 添加编辑 弹出层
+    openModel: function() {
+      this.model.show = true;
+      this.model.title = '添加卡片';
+      this.model.createState = true;
+    },
+    openModel2: function(item) {
+      this.model.createState = false;
+      this.model.show = true;
+      this.model.title = '编辑卡片';
+      console.log(item.Id);
+      this.model.input.id = item.Id;
+      let code = item.CardNo;
+      this.model.input.code1 = code.toString().substr(0, 3);
+      this.model.input.code2 = code.toString().substr(3);
+      this.model.input.code = code;
+      this.model.input.description = item.Description;
+      this.model.input.state = item.CardState.toString();
+      this.model.input.police = item.PoliceId;
+    },
+    closeModel: function() {
+      this.model.show = false;
+      this.model.title = '';
+      this.model.btnLoading_submit = false;
+      this.model.step = 0;
+      this.model.input.id = '';
+      this.model.input.code1 = '';
+      this.model.input.code2 = '';
+      this.model.input.code = '';
+      this.model.input.edit = '';
+      this.model.input.position = '';
+      this.model.input.description = '';
+      this.model.input.state = '0';
+      this.model.input.police = '';
+    },
+    clearModel: function() {
+      this.$confirm('是否取消编辑?', '提示', {
+        confirmButtonText: '确定',
+        cancelButtonText: '取消',
+        type: 'warning',
+        center: true
+      }).then(() => {
+        this.closeModel();
+        this.$message({
+          type: 'info',
+          message: '取消编辑!'
+        });
+      }).catch(() => {
+        this.$message({
+          type: 'info',
+          message: '继续编辑!'
+        });
+      });
+    },
+    cardNum: function() {
+      let c1 = this.model.input.code1;
+      let c2 = this.model.input.code2;
+      let num1, num2;
+      if (c1 && c1.length <= 3) {
+        num1 = (Array(3).join('0') + c1).slice(-3);
+      } else {
+        num1 = "000";
+      }
+      if (c2 && c2.length <= 5) {
+        num2 = (Array(5).join('0') + c2).slice(-5);
+      } else {
+        num2 = "00000";
+      }
+      return num1 + '\n' + num2;
+    },
+    inputOnchange_code1: function() {
+      let re = /^[0-9]+[0-9]*]*$/;
+      let that = this;
+      let code1 = that.model.input.code1;
+      if (!re.test(code1) && code1 || code1 > 255) {
+        // that.model.input.code1 = '';
+        that.$refs.code1.focus();
+        that.$message({
+          message: '输入不正确,请重新输入',
+          type: 'warning'
+        });
+      }
+    },
+    inputOnchange_code2: function() {
+      let re = /^[0-9]+[0-9]*]*$/;
+      let that = this;
+      let code2 = that.model.input.code2;
+      if (!re.test(code2) && code2 || code2 > 65535) {
+        that.$refs.code2.focus();
+        that.$message({
+          message: '输入不正确,请重新输入',
+          type: 'warning'
+        });
+      }
+    },
+    //获取列表
+    getList: function() {
+      let that = this;
+      that.axios.post('/api/card/GetCards', {
+        "limit": that.list.limit,
+        "offset": that.list.offset - 1,
+      }).then(function(rel) {
+        console.log(rel);
+        if (rel.status == 200) {
+          that.list.data = rel.data.Data;
+          that.list.total = rel.data.Total;
+          that.list.getTing = false;
+        }
+      }).catch(rel => {
+        that.list.getTing = false;
+        that.list.noGet = true;
+        that.$message({
+          message: '获取列表失败,请刷新',
+          type: 'warning'
+        });
+      });
+    },
+    getPolices: function() {
+      let that = this;
+      that.axios.get('/api/user/GetUserList')
+        .then(function(rel) {
+          console.log('警员名' + rel);
+          if (rel.status == 200) {
+            that.model.input.polices = rel.data.rows;
+          }
+        }).catch(rel => {
+          console.log(rel);
+        });
+    },
+
+    //写卡
+    writeCard: function() {
+      let that = this;
+      if (that.model.input.code1 == '' || that.model.input.code2 == '' || that.model.input.position == '' || that.model.input.edit == '') {
+        that.$message({
+          type: 'info',
+          message: '请正确填写表单!'
+        });
+      } else {
+        that.model.btnLoading_writeCard = true;
+        that.axios.post('/api/card/WriteCardNo', {
+          "SamID": that.model.input.position,
+          "AreaCode": that.model.input.code1,
+          "IdCode": that.model.input.code2,
+          "OperateType": that.model.input.edit,
+        }).then(function(rel) {
+          console.log(rel);
+          if (rel.data.StateCode == 200) {
+            that.$message({
+              type: 'success',
+              message: rel.data.Message,
+            });
+            that.model.btnLoading_writeCard = false;
+            that.model.step = 1;
+          } else {
+            that.$message({
+              type: 'warning',
+              message: rel.data.Message,
+            });
+            that.model.btnLoading_writeCard = false;
+          }
+        }).catch(rel => {
+          that.$message({
+            message: rel.data.Message,
+            type: 'warning'
+          });
+        });
+      }
+    },
+    //提交卡片
+    cardSubmit: function() {
+      let that = this;
+      that.model.btnLoading_submit = true;
+      if (that.model.input.police == '') {
+        that.$message({
+          type: 'info',
+          message: '请选择警员!'
+        });
+      } else {
+        if (that.model.createState == true) {
+          that.axios.post('/api/card/Post', {
+            "AreaNo": that.model.input.code1,
+            "IdNo": that.model.input.code2,
+            "Description": that.model.input.description,
+            "CardState": that.model.input.state,
+            "PoliceId": that.model.input.police,
+          }).then(function(rel) {
+            console.log(rel);
+            if (rel.data.StateCode == 200) {
+              that.$message({
+                type: 'success',
+                message: rel.data.Message,
+              });
+              that.model.step = 3;
+              that.closeModel();
+              that.getList();
+            } else {
+              that.$message({
+                type: 'warning',
+                message: rel.data.Message,
+              });
+              that.model.btnLoading_submit = false;
+            }
+          }).catch(rel => {
+            console.log(rel)
+            that.$message({
+              message: rel.data.Message,
+              type: 'warning'
+            });
+          });
+
+        } else {
+          that.axios.put('/api/card/Put', {
+            "AreaNo": that.model.input.code1,
+            "IdNo": that.model.input.code2,
+            "Description": that.model.input.description,
+            "CardState": that.model.input.state,
+            "PoliceId": that.model.input.police,
+            "Id": that.model.input.id,
+          }).then(function(rel) {
+            console.log(rel);
+            if (rel.data.StateCode == 200) {
+              that.$message({
+                type: 'success',
+                message: rel.data.Message,
+              });
+              that.model.step = 3;
+              that.closeModel();
+              that.getList();
+            } else {
+              that.$message({
+                type: 'warning',
+                message: rel.data.Message,
+              });
+              that.model.btnLoading_submit = false;
+            }
+          }).catch(rel => {
+            that.$message({
+              message: rel.data.Message,
+              type: 'warning'
+            });
+            that.model.btnLoading_submit = false;
+          });
+        }
+      }
+    },
+    //删除卡片
+    delCard: function() {
+      let that = this;
+      that.model.btnLoading_submit = true;
+      this.$prompt('请输入"delete"', '删除确定', {
+        confirmButtonText: '删除此警员',
+        cancelButtonText: '取消',
+      }).then(({
+        value
+      }) => {
+        if (value == "delete") {
+          that.axios.delete('/api/card/Delete?id=' + that.model.input.id).then(function(rel) {
+            if (rel.status == 500) {
+              that.$message({
+                message: "删除警员失败,请重试",
+                type: 'warning'
+              });
+              that.model.btnLoading_delete = false;
+            } else if (rel.status == 200) {
+              that.$message({
+                message: rel.data.Message,
+                type: 'success'
+              });
+              that.list.offset = 1;
+              that.closeModel();
+              that.getList();
+            }
+          }).catch(rel => {
+            console.log(rel);
+            that.$message({
+              message: '删除警员失败,请重试',
+              type: 'warning'
+            });
+            that.model.btnLoading_delete = false;
+          });
+        } else {
+          this.$message({
+            type: 'info',
+            message: '请输入正确"delete"'
+          });
+        }
+      }).catch(() => {
+        this.$message({
+          type: 'info',
+          message: '删除已取消'
+        });
+      });
+    },
+
+    openModel_q: function(item) {
+      console.log(item);
+      let that = this;
+      that.model2.show = true;
+      that.model2.input.policeName = item.PoliceName;
+      that.model2.input.cardNum = item.CardNo;
+      that.model2.input.id = item.Id;
+      that.axios.get('/api/card/GetPermission?id=' + item.Id).then(function(rel) {
+        console.log(rel);
+        that.model2.input.data = rel.data.Data;
+      }).catch(rel => {
+        that.$message({
+          message: rel.data.Message,
+          type: 'warning'
+        });
+      });
+    },
+    closeModel_q: function() {
+      this.model2 = {
+        show: false,
+        btnLoading_submit: false,
+        input: {
+          policeName: '',
+          cardNum: '',
+          data: [],
+          dataChecked: [],
+        },
+      };
+
+    },
+    submit_q: function() {
+      let that = this;
+      that.model2.btnLoading_submit = true;
+      that.axios.post('/api/card/AuthorizePermission', {
+        "Id": that.model2.input.id,
+        "CtlPermission": that.model2.input.dataChecked,
+      }).then(function(rel) {
+        console.log(rel);
+        that.$message({
+          message: "授权成功",
+          type: 'success'
+        });
+        that.list.offset = 1;
+        that.getList();
+        that.closeModel_q();
+      }).catch(rel => {
+        that.$message({
+          message: '编辑权限失败,请重试',
+          type: 'warning'
+        });
+        that.model2.btnLoading_submit = false;
+      });
+    },
+  },
+  computed: {},
+  components: {},
+}
+</script>
+
+<style lang="scss" scoped>
+.btn_role {
+    margin-right: 10px;
+    border: 1px solid #F56C6C !important;
+    color: #F56C6C !important;
+    &.touch,
+    &:focus,
+    &:hover {
+        background: #F56C6C !important;
+        color: #fff !important;
+    }
+}
+.num {}
+.code {
+    width: 20%;
+}
+.status {
+    width: 20%;
+}
+.police {
+    width: 20%;
+}
+.recard {
+    border-radius: 10px;
+    background-color: #409EFF;
+    background: -webkit-linear-gradient(left, #00d8ff, #0018ff);
+    background: -moz-linear-gradient(left, #00d8ff, #0018ff);
+    background: -o-linear-gradient(left, #00d8ff, #0018ff);
+    background: linear-gradient(left, #00d8ff, #0018ff);
+    display: block;
+    height: 200px;
+    width: 320px;
+    position: relative;
+    > h5 {
+        font-size: 26px;
+        // font-weight: bold;
+        text-align: right;
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+        letter-spacing: 5px;
+        text-shadow: 1px 1px 1px #333;
+    }
+}
+.steps {
+    max-width: 500px;
+    margin: 20px auto;
+}
+.el-checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+.el-checkbox {
+    margin-left: 0 !important;
+    margin-bottom: 10px;
+    margin-right: 10px;
+}
+</style>

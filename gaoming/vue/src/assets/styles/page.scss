@@ -1,0 +1,2053 @@
+@charset "UTF-8";
+
+/*
+ * name: 'page.scss';
+ * author: 'NearSaint';
+ * time: '2018.10';
+ */
+
+@import "_mixin";
+
+body {
+  transition: padding-right 0.3s;
+}
+
+div.mainBox {
+  width: 100%;
+  height: calc(100% - 20px);
+  margin: 0;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  line-height: 20px;
+  display: flex;
+  flex-direction: column;
+
+  > div {
+    height: 100%;
+
+    > div.title {
+      height: 52px;
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: flex-start;
+      flex-wrap: nowrap;
+      padding-left: 10px;
+
+      > .bt {
+        outline: none;
+        border-radius: 0 0 10px 10px;
+        background-color: rgba(255, 255, 255, 0.05);
+        height: 52px;
+        line-height: 52px;
+        padding: 0 40px;
+        font-size: 16px;
+        color: rgba(255, 255, 255, 0.5);
+        margin-left: 8px;
+
+        &:hover,
+        &:focus,
+        &.touch {
+          background-color: rgba(255, 255, 255, 0.3);
+          color: rgba(255, 255, 255, 1);
+        }
+
+        &.active,
+        &.router-link-active,
+        &.router-link-exact-active {
+          background: #00a0e9;
+          color: #fff;
+        }
+      }
+    }
+
+    > div.content {
+      height: calc(100% - 72px);
+
+      > div {
+        height: 100%;
+
+        > div.list {
+          height: 100%;
+
+          > div.content {
+            height: calc(100% - 85px);
+            overflow-y: scroll;
+            overflow-x: hidden;
+            -ms-overflow-style: none;
+            overflow: -moz-scrollbars-none;
+
+            &::-webkit-scrollbar {
+              width: 0 !important;
+              height: 0 !important;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &.right {
+    margin-left: 180px;
+    width: calc(100% - 180px);
+  }
+}
+
+div.leftNav {
+  width: 180px;
+  position: fixed;
+  left: 0;
+  top: 100px;
+
+  > .bt {
+    display: block;
+    margin-bottom: 10px;
+    color: #fff;
+    padding: 15px 10px 15px 64px;
+    position: relative;
+    color: #ccc;
+    border-radius: 0 10px 10px 0;
+    background-color: rgba(0, 0, 0, 0.05);
+
+    > i.fa {
+      position: absolute;
+      left: 20px;
+      display: block;
+      height: 24px;
+      width: 24px;
+      font-size: 18px;
+      line-height: 24px;
+      text-align: center;
+    }
+
+    > h4 {
+      font-size: 14px;
+      line-height: 14px;
+      margin-bottom: 2px;
+      font-weight: bold;
+    }
+
+    > h5 {
+      font-size: 12px;
+      line-height: 12px;
+    }
+
+    &.touch,
+    &:focus,
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.2);
+      color: #fff;
+    }
+
+    &.active,
+    &.router-link-active,
+    &.router-link-exact-active {
+      background-color: rgba(255, 255, 255, 0.9);
+      color: #00a0e9;
+    }
+  }
+}
+
+div.list {
+  position: relative;
+  margin: 0;
+  padding: 0;
+
+  &.listContainer {
+    height: calc(100% - 72px);
+
+    > div.content {
+      height: calc(100% - 85px);
+      overflow-y: scroll;
+      overflow-x: hidden;
+      -ms-overflow-style: none;
+      overflow: -moz-scrollbars-none;
+
+      &::-webkit-scrollbar {
+        width: 0 !important;
+        height: 0 !important;
+      }
+    }
+  }
+
+  > div.toptools {
+    position: absolute;
+    top: -72px;
+    right: 0;
+    height: 52px;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: nowrap;
+
+    > * {
+      margin-left: 10px;
+    }
+  }
+
+  > div.title {
+    height: 32px;
+    line-height: 32px;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 0 19px;
+    font-size: 12px;
+
+    > ul {
+      display: flex;
+      justify-content: flex-start;
+
+      > li {
+        margin: 0 1px;
+        flex-shrink: 0;
+        flex-grow: 0;
+        color: #999;
+
+        &.num {
+          width: 5%;
+          text-align: center;
+        }
+
+        &.btn {
+          flex-grow: 1;
+          text-align: right;
+        }
+      }
+    }
+  }
+
+  > div.content {
+    > ul {
+      display: flex;
+      justify-content: flex-start;
+      padding: 0 19px;
+      line-height: 72px;
+      font-size: 14px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.01);
+      border-top: 1px solid rgba(255, 255, 255, 0.01);
+      transition: all 0.3s;
+
+      // border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+
+      > li {
+        margin: 0 1px;
+        flex-shrink: 0;
+        flex-grow: 0;
+
+        &.num {
+          width: 5%;
+          color: #999;
+          text-align: center;
+        }
+
+        &.btn {
+          flex-grow: 1;
+          text-align: right;
+
+          > a {
+            border-radius: 50px;
+            padding: 0 20px;
+            line-height: 32px;
+            display: inline-block;
+            height: 32px;
+            border: 1px solid #00a0e9;
+            color: #00a0e9;
+            font-size: 12px;
+
+            &:hover,
+            &:focus,
+            &.touch {
+              background-color: #00a0e9;
+              color: #fff;
+            }
+          }
+        }
+      }
+
+      &:nth-child(odd) {
+        background: rgba(255, 255, 255, 0.05);
+      }
+
+      &:nth-child(even) {
+        background: rgba(0, 0, 0, 0.05);
+      }
+
+      &:hover,
+      &:focus,
+      &.touch {
+        background: rgba(0, 0, 0, 0.8);
+        border-bottom: 1px solid #00a0e9;
+        border-top: 1px solid #00a0e9;
+      }
+    }
+  }
+
+  > div.bottomtools {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 10px 20px;
+  }
+}
+
+div.model {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 999;
+  height: 100%;
+  width: 100%;
+  min-width: 1080px;
+  background-color: rgba(0, 0, 0, 0.5);
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+  overflow: -moz-scrollbars-none;
+
+  &::-webkit-scrollbar {
+    width: 0 !important;
+    height: 0 !important;
+  }
+
+  > a.bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: block;
+    width: 100%;
+    height: 100%;
+
+    &:hover,
+    &:focus,
+    &.touch {
+      // background-color: rgba(0, 0, 0, 0.78);
+   
+    }
+  }
+
+  > a.btn {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 2;
+    display: block;
+    width: 66px;
+    height: 66px;
+    text-align: right;
+    padding-right: 15px;
+    padding-top: 15px;
+    font-size: 20px;
+    flex: 0 0 auto;
+    border-radius: 0 0 0 88px;
+    background-color: rgba(255, 255, 255, 0.2);
+
+    &:hover,
+    &:focus,
+    &.touch {
+      background-color: rgba(255, 255, 255, 0.5);
+      color: #333;
+    }
+  }
+
+  > div.modelBox {
+    position: relative;
+    margin: 100px auto;
+    z-index: 3;
+    padding: 72px 20px 76px 20px;
+    width: 60%;
+    background-color: #fff;
+    border-radius: 10px;
+
+    // overflow: hidden;
+
+    > button.del {
+      position: absolute;
+      right: 10px;
+      top: 10px;
+      z-index: 4;
+    }
+
+    > div.title {
+      height: 52px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      color: #444;
+      display: flex;
+      justify-content: flex-start;
+      background: #fff;
+      border-radius: 10px 10px 0 0;
+
+      > i {
+        border-radius: 10px;
+        height: 32px;
+        width: 8px;
+        margin: 10px;
+        display: block;
+        background-color: #00a0e9;
+        flex: 0 0 auto;
+      }
+
+      > h5 {
+        height: 52px;
+        font-size: 16px;
+        font-weight: bold;
+        line-height: 52px;
+        flex: 1 0 auto;
+      }
+    }
+
+    > div.content {
+      // height: 100%;
+      padding: 10px 10px;
+
+      // overflow-x: hidden;
+      // overflow-y: scroll;
+      // -ms-overflow-style: none;
+      // overflow: -moz-scrollbars-none;
+      //
+      // &::-webkit-scrollbar {
+      //   width: 0 !important;
+      //   height: 0 !important;
+      // }
+
+      > div.object {
+        margin-bottom: 30px;
+
+        > div.title {
+          position: relative;
+          padding: 12px 0;
+          margin-bottom: 10px;
+
+          > hr {
+            width: 100%;
+            height: 1px;
+            background: #ddd;
+            border: none;
+            outline: none;
+            margin: 0;
+          }
+
+          > span {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 20px;
+            height: 25px;
+            line-height: 25px;
+            color: #666;
+            background-color: #fff;
+            font-size: 12px;
+            padding: 0 15px;
+          }
+        }
+
+        ul.input {
+          > li {
+            display: flex;
+            justify-content: flex-start;
+            margin-bottom: 15px;
+
+            > span {
+              color: #666;
+              width: 150px;
+              line-height: 36px;
+              font-size: 12px;
+              padding-right: 20px;
+              text-align: right;
+            }
+
+            > div.input {
+              width: 400px;
+            }
+
+            ul.inputBox {
+              width: 400px;
+              padding: 10px;
+              border-radius: 4px;
+              background-color: #eee;
+              position: relative;
+              margin-bottom: 20px;
+
+              > li {
+                display: flex;
+                margin-bottom: 10px;
+                flex-shrink: 0;
+                flex-grow: 0;
+
+                &:last-child {
+                  margin-bottom: 0;
+                }
+
+                > span {
+                  width: 100px;
+                  line-height: 36px;
+                  font-size: 12px;
+                  color: #999;
+                  padding-right: 10px;
+                  text-align: right;
+                }
+              }
+
+              > .btn_del {
+                position: absolute;
+                left: calc(100% + 20px);
+                top: 50%;
+                margin-top: -14px;
+              }
+            }
+
+            > .el-checkbox {
+              line-height: 34px;
+              background-color: #f5f5f5;
+              padding: 0 10px;
+              border-radius: 5px;
+              border: 1px solid #ddd;
+              color: #999;
+            }
+
+            .btn_add {
+              width: 400px;
+            }
+          }
+        }
+      }
+    }
+
+    > div.footer {
+      padding: 10px;
+      height: 56px;
+      width: 100%;
+      background: #fff;
+      border-radius: 0 0 10px 10px;
+      justify-content: flex-end;
+      display: flex;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+  }
+}
+
+div.noGet,
+div.getTing {
+  width: 100%;
+  height: 100%;
+  position: relative;
+
+  > div {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 400px;
+    height: 100px;
+    margin: -50px 0 0 -200px;
+    text-align: center;
+
+    > h5 {
+      font-size: 16px;
+      color: #999;
+      line-height: 42px;
+      width: 100%;
+      margin-bottom: 10px;
+    }
+
+    > a {
+      border: 1px solid #00a0e9;
+      color: #00a0e9;
+      border-radius: 50px;
+      line-height: 32px;
+      padding: 0 40px;
+      text-align: center;
+      display: inline-block;
+      font-size: 14px;
+
+      &:hover,
+      &:focus,
+      &.touch {
+        color: #fff;
+        background: #00a0e9;
+      }
+    }
+  }
+}
+
+div.titleContainer {
+  height: 52px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+  padding: 10px 0 10px 10px;
+
+  > span {
+    display: block;
+    width: 8px;
+    height: 32px;
+    border-radius: 10px;
+    background-color: #00a0e9;
+  }
+
+  > h5 {
+    line-height: 32px;
+    font-size: 18px;
+    margin-left: 10px;
+    font-weight: bolder;
+    color: #00a0e9;
+  }
+}
+
+.logList {
+  position: relative;
+
+  > div.sifi {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    padding: 10px 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+    margin-top: -20px;
+
+    > .el-select {
+      width: 120px;
+      margin-left: 5px;
+    }
+
+    > .el-input {
+      width: 180px;
+      margin-left: 5px;
+    }
+
+    > .el-date-editor {
+      width: 360px;
+    }
+
+    > .el-button {
+      margin: 0 0 0 5px;
+    }
+  }
+
+  > div.list {
+    padding: 0;
+    height: calc(100% - 127px);
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    overflow: -moz-scrollbars-none;
+
+    &::-webkit-scrollbar {
+      width: 0 !important;
+      height: 0 !important;
+    }
+
+    &.hasSifi {
+      height: calc(100% - 159px);
+    }
+
+    > ul {
+      > li {
+        line-height: 62px;
+        height: 62px;
+        display: flex;
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+        border-bottom: 1px dashed rgba(255, 255, 255, 0.4);
+
+        > i.fa {
+          width: 62px;
+          height: 62px;
+          line-height: 62px;
+          text-align: center;
+
+          &.fa-circle {
+            color: #67C23A;
+          }
+
+          &.fa-circle-o {
+            color: #E6A23C;
+          }
+
+          &.fa-exchange {
+            color: #409EFF;
+          }
+
+          &.fa-warning {
+            color: #F56C6C;
+          }
+        }
+
+        > span {
+          color: #999;
+          display: block;
+          width: 9.5em;
+          margin-right: 20px;
+          font-size: 13px;
+        }
+
+        > h5 {
+          line-height: 32px;
+          font-size: 14px;
+          padding-left: 20px;
+          margin: 15px 0;
+          border-left: 1px solid #666;
+        }
+
+        &:last-child {
+          border-bottom: none;
+        }
+      }
+    }
+  }
+
+  > .bottomtools {
+    display: flex;
+    justify-content: flex-end;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 10px 20px;
+  }
+}
+
+div.home {
+  > div.mainBox {
+    > div.viewTitle {
+      height: 72px;
+      display: flex;
+      justify-content: flex-start;
+      padding-left: 10px;
+
+      > a.bt {
+        line-height: 72px;
+        display: block;
+        padding: 0 20px;
+        background-color: rgba(255, 255, 255, 0.05);
+        border-radius: 0 0 10px 10px;
+        margin-left: 10px;
+
+        > i {
+          margin-right: 10px;
+        }
+
+        &.touch,
+        &:focus,
+        &:hover {
+          background-color: rgba(0, 0, 0, 0.2);
+          color: #fff;
+        }
+
+        &.active,
+        &.router-link-active,
+        &.router-link-exact-active {
+          background-color: #00a0e9;
+          color: #fff;
+        }
+      }
+    }
+
+    > div.viewContainer {
+      margin-top: 20px;
+      height: calc(100% - 154px);
+      overflow-y: scroll;
+      overflow-x: hidden;
+      -ms-overflow-style: none;
+      overflow: -moz-scrollbars-none;
+      position: relative;
+
+      &::-webkit-scrollbar {
+        width: 0 !important;
+        height: 0 !important;
+      }
+
+      // background-color: rgba(255, 255, 255, 0.05);
+      &.blur {
+        > div {
+          -webkit-filter: blur(6px);
+          -moz-filter: blur(6px);
+          -ms-filter: blur(6px);
+          filter: blur(6px);
+
+          &.active {
+            -webkit-filter: blur(0);
+            -moz-filter: blur(0);
+            -ms-filter: blur(0);
+            filter: blur(0);
+            z-index: 1000;
+            position: relative;
+          }
+        }
+      }
+
+      > div {
+        background: rgba(0, 0, 0, 0.2);
+        width: 100%;
+        height: 158px;
+        transition: 0.8s background;
+        display: flex;
+        justify-content: flex-start;
+        align-items: stretch;
+        margin-bottom: 20px;
+        overflow: hidden;
+        flex-shrink: 0;
+        position: relative;
+
+        &:hover,
+        &:focus {
+          background: rgba(0, 0, 0, 0.4);
+        }
+
+        > div.title {
+          position: relative;
+          width: 240px;
+          background-color: rgba(0, 0, 0, 0.8);
+          box-shadow: 0 6px 8px #333;
+          z-index: 99;
+          margin-right: 30px;
+          flex-shrink: 0;
+          flex-grow: 0;
+
+          > div.text {
+            width: 100%;
+            height: calc(100% - 48px);
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+
+            > a {
+              display: flex;
+              flex-wrap: wrap;
+              height: 100%;
+              width: 100%;
+
+              > h5 {
+                font-size: 36px;
+                line-height: 40px;
+                width: 100%;
+                text-align: center;
+                font-weight: bolder;
+                display: flex;
+                align-items: flex-end;
+                justify-content: center;
+              }
+
+              > h6 {
+                font-size: 12px;
+                line-height: 30px;
+                width: 100%;
+                text-align: center;
+                color: #ccc;
+                display: flex;
+                align-items: flex-start;
+                justify-content: center;
+              }
+            }
+          }
+
+          > div.btn {
+            height: 48px;
+            line-height: 52px;
+            display: flex;
+            justify-content: flex-start;
+
+            > .el-button {
+              flex-grow: 1;
+              flex-shrink: 1;
+              margin: 0;
+              padding: 0 10px;
+              border-radius: 0;
+              border: none;
+
+              &[disabled] {
+                color: #ccc;
+                background-color: #eee;
+              }
+
+              &.el-button--warning {
+                // display: none;
+             
+              }
+            }
+          }
+
+          &.ing {
+            > div.btn {
+              > .el-button {
+                &.el-button--warning {
+                  display: block;
+                }
+              }
+            }
+          }
+
+          &.off {
+            > div.btn {
+              > .el-button {
+                background: #ccc;
+                color: #999;
+              }
+            }
+          }
+
+          &.closed {
+            > div.btn {
+              > .el-button {
+                &.el-button--success {
+                  background: #ccc;
+                  color: #999;
+                }
+              }
+            }
+          }
+
+          &.on {
+            > div.btn {
+              > .el-button {
+                &.el-button--success {
+                  background: #ccc;
+                  color: #999;
+                }
+              }
+            }
+          }
+        }
+
+        > a.btn_scroll {
+          display: block;
+          width: 28px;
+          height: 80px;
+          line-height: 78px;
+          text-align: center;
+          font-size: 32px;
+          color: #666;
+          background-color: rgba(255, 255, 255, 0.8);
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          border: 1px solid #666;
+          transition: all 0.3s;
+          z-index: 9;
+
+          &:hover {
+            background: rgba(0, 0, 0, 0.6);
+            color: #fff;
+          }
+
+          &.btn_right {
+            right: 0;
+            border-radius: 5px 0 0 5px;
+            border-right: none;
+            box-shadow: -1px 0 6px #333;
+
+            &:hover {
+              padding-left: 10px;
+            }
+          }
+
+          &.btn_left {
+            left: 240px;
+            border-radius: 0 5px 5px 0;
+            border-left: none;
+            box-shadow: 1px 0 6px #333;
+
+            &:hover {
+              padding-right: 10px;
+            }
+          }
+        }
+
+        > .content {
+          height: 100%;
+          width: calc(100% - 300px);
+          padding: 12px 15px 0 12px;
+          display: flex;
+          justify-content: flex-start;
+          flex-wrap: nowrap;
+          position: relative;
+
+          // transition: left 0.3s;
+
+          // overflow: hidden;
+          flex-shrink: 0;
+          flex-grow: 0;
+          top: 0;
+          left: 0;
+
+          // -ms-overflow-style: none;
+          // overflow: -moz-scrollbars-none;
+          //
+          // &::-webkit-scrollbar {
+          //   width: 0 !important;
+          //   height: 0 !important;
+          // }
+
+          > .li {
+            position: relative;
+            height: 134px;
+            width: 288px;
+            flex-shrink: 0;
+            margin-right: 15px;
+            margin-bottom: 12px;
+            border-radius: 8px;
+
+            // overflow: hidden;
+            transition: 0.3s box-shadow;
+            border: 3px solid rgba(255, 255, 255, 0.1);
+
+            &:hover {
+              > div.setTime {
+                display: block;
+              }
+            }
+
+            > div.setTime {
+              position: absolute;
+              top: 49px;
+              right: 0px;
+              display: none;
+
+              > button.setTime {
+                border: none;
+                outline: none;
+                font-size: 12px;
+                background: rgba(0, 0, 0, 0.6);
+                color: #fff;
+                line-height: 24px;
+                border-radius: 5px 0 0 5px;
+                cursor: pointer;
+
+                &:hover {
+                  background: rgba(0, 0, 0, 1);
+                }
+              }
+            }
+
+            &.warning {
+              border-color: red;
+            }
+
+            &:hover,
+            &:focus {
+              box-shadow: 0 0 8px #333;
+            }
+
+            &.last {
+              width: 1px !important;
+              background: none !important;
+            }
+
+            > .title {
+              height: 80px;
+              width: 100%;
+              background: #ccc;
+              color: #999;
+              display: flex;
+              border-radius: 5px 5px 0 0;
+              justify-content: flex-start;
+              transition: background 1s;
+
+              > a {
+                width: 100%;
+                height: 100%;
+                padding: 10px;
+                display: flex;
+                justify-content: flex-start;
+                position: relative;
+
+                > i.fa {
+                  display: block;
+                  height: 60px;
+                  width: 60px;
+                  line-height: 60px;
+                  text-align: center;
+                  font-size: 60px;
+                  margin-right: 10px;
+                }
+
+                > .text {
+                  height: 60px;
+                  width: calc(100% - 70px);
+
+                  > h5 {
+                    line-height: 40px;
+                    font-size: 22px;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                  }
+
+                  > h6 {
+                    line-height: 20px;
+                    font-size: 12px;
+
+                    &:after {
+                      content: '离线';
+                    }
+                  }
+                }
+
+                > span {
+                  display: block;
+                  position: absolute;
+                  right: 0;
+                  top: 0;
+                  background-color: red;
+                  border-radius: 0 0 0 8px;
+                  font-size: 14px;
+                  padding: 0 10px;
+                  color: #fff;
+
+                  &::after {
+                    content: "锁";
+                  }
+                }
+              }
+            }
+
+            > .line {
+              height: 8px;
+              width: 100%;
+              background: #444;
+              overflow: hidden;
+              margin: 0;
+
+              > div.progress {
+                height: 100%;
+                background-color: #00a0e9;
+                border-radius: 5px;
+                transition: width 3s linear;
+                width: 0;
+              }
+            }
+
+            > .btn {
+              height: 40px;
+              background: #333;
+              display: flex;
+              justify-content: flex-start;
+              border-radius: 0 0 5px 5px;
+              overflow: hidden;
+
+              > .el-button {
+                flex-grow: 1;
+                flex-shrink: 1;
+                margin: 0;
+                padding: 0;
+                border-radius: 0;
+                border: none;
+                border-right: 1px solid #ddd;
+
+                &:last-child {
+                  border-right: none;
+                }
+
+                &[disabled] {
+                  color: #ccc;
+                  background-color: #eee;
+                }
+              }
+            }
+
+            &.open {
+              > .title {
+                background: #F56C6C;
+                color: #fff;
+
+                > a {
+                  > i::before {
+                    content: '\F09C';
+                  }
+
+                  > .text {
+                    > h6:after {
+                      content: '开启';
+                    }
+                  }
+                }
+              }
+
+              > .line {
+                > div.progress {
+                  width: 0 !important;
+                }
+              }
+
+              > .btn {
+                > .el-button {
+                  &.el-button--warning {
+                    // display: none;
+                 
+                  }
+                }
+              }
+            }
+
+            &.closed {
+              > .title {
+                background: #67C23A;
+                color: #fff;
+
+                > a {
+                  > i::before {
+                    content: '\F023';
+                  }
+
+                  > .text {
+                    > h6:after {
+                      content: '关闭';
+                    }
+                  }
+                }
+              }
+
+              > .line {
+                > div.progress {
+                  width: 0 !important;
+                }
+              }
+
+              > .btn {
+                > .el-button {
+                  &.el-button--warning {
+                    // display: none;
+                 
+                  }
+                }
+              }
+            }
+
+            &.on,
+            &.stop {
+              > .title {
+                background: #0068b7;
+                color: #fff;
+
+                > a {
+                  > i::before {
+                    content: '\f0c1 ';
+                  }
+
+                  > .text {
+                    > h6:after {
+                      content: '已连接';
+                    }
+                  }
+                }
+              }
+
+              > .line {
+                > div.progress {
+                  width: 0 !important;
+                }
+              }
+
+              > .btn {
+                > .el-button {
+                  &.el-button--warning {
+                    // display: none;
+                 
+                  }
+                }
+              }
+            }
+
+            &.off {
+              > .title {
+                background: #ccc;
+                color: #999;
+
+                > a {
+                  > i::before {
+                    content: '\F127';
+                  }
+
+                  > .text {
+                    > h6:after {
+                      content: '离线';
+                    }
+                  }
+
+                  > span.lock {
+                    display: none;
+                  }
+                }
+              }
+
+              > .line {
+                background-color: #999;
+
+                > div.progress {
+                  width: 0 !important;
+                }
+              }
+
+              > .btn {
+                > .el-button {
+                  &.el-button--warning {
+                    // display: none;
+                 
+                  }
+                }
+              }
+            }
+
+            &.ing {
+              > .title {
+                background: #E6A23C;
+                color: #fff;
+
+                > a {
+                  > i::before {
+                    content: '\F13E';
+                  }
+                }
+              }
+
+              &.openning {
+                > .title {
+                  > a {
+                    > .text {
+                      > h6:after {
+                        content: '开启中';
+                      }
+                    }
+                  }
+                }
+
+                > .line {
+                  > div.progress {
+                    // width: auto !important;
+                    background-color: #ff0000;
+                  }
+                }
+              }
+
+              &.closing {
+                > .title {
+                  > a {
+                    > .text {
+                      > h6:after {
+                        content: '关闭中';
+                      }
+                    }
+                  }
+                }
+
+                > .line {
+                  > div.progress {
+                    // width: auto !important;
+                    background-color: #00ff00;
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        &.active {
+          height: auto !important;
+          background: rgba(255, 255, 255, 0.2);
+
+          > div.title {}
+
+          > a.btn_scroll {
+            display: none;
+          }
+
+          > .content {
+            flex-wrap: wrap;
+            margin-left: 0 !important;
+            left: 0 !important;
+          }
+        }
+
+        &.blur {
+          -webkit-filter: blur(3px);
+          -moz-filter: blur(3px);
+          -ms-filter: blur(3px);
+          filter: blur(3px);
+        }
+      }
+    }
+
+    > div.bottomtools {
+      height: 62px;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      border-radius: 0 0 10px 10px;
+      overflow: hidden;
+      display: flex;
+      justify-content: space-between;
+
+      > div.btn {
+        display: flex;
+        justify-content: flex-start;
+        height: 100%;
+        width: 420px;
+
+        .el-button {
+          flex-grow: 1;
+          flex-shrink: 1;
+          border-radius: 0;
+          height: 100%;
+          margin: 0;
+          border: none;
+
+          &[disabled] {
+            background-color: #eee;
+            color: #ccc;
+          }
+        }
+      }
+
+      > div.serve {
+        display: flex;
+        justify-content: flex-end;
+        padding: 15px 10px;
+
+        > i {
+          margin: 0 10px 0 20px;
+          display: block;
+          width: 2px;
+          height: 100%;
+          background: #ddd;
+        }
+
+        > a {
+          margin-left: 10px;
+          border-radius: 20px;
+          display: block;
+          position: relative;
+          padding: 0 12px 0 32px;
+          color: #999;
+          font-size: 12px;
+          line-height: 32px;
+          background-color: #fff;
+
+          // &:hover,
+          // &:focus,
+          // &.touch {
+          //   background-color: #909399;
+          // }
+
+          > i {
+            display: block;
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            height: 16px;
+            width: 16px;
+            border-radius: 20px;
+            background-color: #ddd;
+          }
+
+          &.working {
+            color: #67C23A;
+
+            > i {
+              background-color: #67C23A;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+body.hasCamera {
+  div.home > div.mainBox > div.bottomtools > div.serve {
+    display: none;
+  }
+}
+
+div.mark_home {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 999;
+  transition: all 0.3s;
+
+  > div.bg {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+
+    > a {
+      display: block;
+      height: 100%;
+      width: 100%;
+    }
+  }
+}
+
+div.model1 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+  padding: 100px 40px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  -ms-overflow-style: none;
+  overflow: -moz-scrollbars-none;
+
+  &::-webkit-scrollbar {
+    width: 0 !important;
+    height: 0 !important;
+  }
+
+  > div.bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 6;
+    transition: all 0.3s;
+    background-color: rgba(0, 0, 0, 0.8);
+
+    > a {
+      display: block;
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  > a.btn {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 10;
+    display: block;
+    width: 66px;
+    height: 66px;
+    text-align: right;
+    padding-right: 15px;
+    padding-top: 15px;
+    font-size: 20px;
+    flex: 0 0 auto;
+    border-radius: 0 0 0 88px;
+    background-color: rgba(255, 255, 255, 0.2);
+
+    &:hover,
+    &:focus,
+    &.touch {
+      background-color: rgba(255, 255, 255, 0.5);
+      color: #333;
+    }
+  }
+
+  > div.modelbox {
+    max-width: 660px;
+    width: 660px;
+    margin: 0 auto;
+    min-width: 660px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 9;
+    border-radius: 15px;
+    border: 2px solid rgba(0, 0, 0, 0.1);
+
+    &.warning {
+      > div {
+        border: 2px solid red;
+      }
+    }
+
+    > div.normal {
+      border-radius: 10px;
+      width: 660px;
+      height: 203px;
+      margin: 5px;
+      overflow: hidden;
+
+      > div.title {
+        height: 138px;
+        background-color: #ccc;
+        display: flex;
+        justify-content: flex-start;
+        padding: 20px 40px;
+        position: relative;
+
+        > span.lock {
+          position: absolute;
+          right: 0;
+          top: 0;
+          padding: 10px 20px;
+          background-color: red;
+          border-radius: 0 0 0 10px;
+          color: #fff;
+        }
+
+        > i.fa {
+          font-size: 88px;
+          line-height: 98px;
+          width: 98px;
+          height: 98px;
+          text-align: center;
+          margin-right: 40px;
+        }
+
+        > div.text {
+          height: 98px;
+
+          > h4 {
+            display: flex;
+            align-items: flex-end;
+            font-size: 26px;
+            line-height: 62px;
+
+            i {
+              display: inline-block;
+              height: 6px;
+              width: 6px;
+              border-radius: 50%;
+              background: #ddd;
+              margin: 25px 10px;
+            }
+          }
+
+          > h6 {
+            font-size: 16px;
+          }
+        }
+      }
+
+      > div.line {
+        height: 13px;
+        width: calc(100% + 10px);
+        background: #444;
+        overflow: hidden;
+        margin: 0 -5px;
+
+        > div.progress {
+          height: 100%;
+          width: 0;
+          background-color: #00a0e9;
+          border-radius: 5px;
+          transition: width 1s linear;
+        }
+      }
+
+      > div.btn {
+        height: 52px;
+        line-height: 52px;
+        border-radius: 0 0 10px 10px;
+        background-color: #eee;
+        display: flex;
+        justify-content: flex-start;
+        overflow: hidden;
+
+        .el-button {
+          flex-grow: 1;
+          flex-shrink: 1;
+          border-radius: 0;
+          height: 100%;
+          margin: 0;
+          border: none;
+
+          &[disabled] {
+            background-color: #eee;
+            color: #ccc;
+          }
+
+          &.el-button--warning {
+            // display: none;
+         
+          }
+        }
+      }
+
+      > div.camera {
+        height: 500px;
+        border-radius: 10px;
+        background-color: #fff;
+        padding: 10px;
+
+        > h5 {
+          height: 480px;
+          width: 640px;
+          border-radius: 6px;
+          background-color: #eee;
+          color: #999;
+          line-height: 480px;
+          text-align: center;
+        }
+      }
+
+      &.open {
+        > .title {
+          background: #F56C6C;
+          color: #fff;
+
+          > i::before {
+            content: "\F09C" !important;
+          }
+
+          > div.text {
+            > h6::after {
+              content: '已开启';
+            }
+          }
+        }
+
+        > .line {
+          > div.progress {
+            width: 0 !important;
+          }
+        }
+      }
+
+      &.on,
+      &.stop {
+        > .title {
+          background: #0068b7;
+          color: #fff;
+
+          > i::before {
+            content: "\f0c1" !important;
+          }
+
+          > div.text {
+            > h6::after {
+              content: '已连接';
+            }
+          }
+        }
+
+        > .line {
+          > div.progress {
+            width: 0 !important;
+          }
+        }
+      }
+
+      &.closed {
+        > .title {
+          background: #67C23A;
+          color: #fff;
+
+          > i::before {
+            content: "\F023" !important;
+          }
+
+          > div.text {
+            > h6::after {
+              content: '已关闭';
+            }
+          }
+        }
+
+        > .line {
+          > div.progress {
+            width: 0 !important;
+          }
+        }
+      }
+
+      &.off {
+        > .title {
+          background: #ccc;
+          color: #999;
+
+          > i::before {
+            content: "\F127" !important;
+          }
+
+          > div.text {
+            > h6::after {
+              content: '离线';
+            }
+          }
+
+          > span.lock {
+            display: none;
+          }
+        }
+
+        > .line {
+          background-color: #999;
+
+          > div.progress {
+            width: 0 !important;
+          }
+        }
+      }
+
+      &.ing {
+        > .title {
+          background: #E6A23C;
+          color: #fff;
+
+          > i::before {
+            content: "\F13E" !important;
+          }
+        }
+
+        > .btn {
+          .el-button {
+            &.el-button--warning {
+              display: block;
+            }
+          }
+        }
+
+        &.openning {
+          > .title {
+            > div.text {
+              > h6 {
+                &::after {
+                  content: '开启中......';
+                }
+              }
+            }
+          }
+
+          > .line {
+            > div.progress {
+              background-color: #ff0000;
+            }
+          }
+        }
+
+        &.closing {
+          > .title {
+            > div.text {
+              > h6 {
+                &::after {
+                  content: '关闭中......';
+                }
+              }
+            }
+          }
+
+          > .line {
+            > div.progress {
+              background-color: #00ff00;
+            }
+          }
+        }
+      }
+    }
+
+    > div.main {
+      border-radius: 10px;
+      width: 660px;
+
+      // height: 713px;
+      margin: 5px;
+      background-color: #444;
+
+      // overflow: hidden;
+      position: relative;
+
+      > div.text {
+        height: 278px;
+
+        > h5 {
+          width: 100%;
+          height: 28px;
+          line-height: 28px;
+          background-color: #333;
+          color: #ccc;
+          padding: 0 10px;
+          border-radius: 10px 10px 0 0;
+        }
+
+        > ul {
+          height: 230px;
+          display: flex;
+          justify-content: center;
+          padding: 0 10px;
+          margin: 10px 0;
+          flex-wrap: wrap;
+          overflow-y: scroll;
+          -ms-overflow-style: none;
+          overflow: -moz-scrollbars-none;
+
+          &::-webkit-scrollbar {
+            width: 0 !important;
+            height: 0 !important;
+          }
+
+          > li {
+            width: 100%;
+            margin: 2px;
+            background: #666;
+            border-radius: 5px;
+            padding: 0 20px;
+            line-height: 42px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 14px;
+
+            > span {
+              color: #fff;
+            }
+          }
+        }
+      }
+
+      > div.log {
+        // height: 435px;
+
+        > h5 {
+          width: 100%;
+          height: 28px;
+          line-height: 28px;
+          background-color: #333;
+          color: #ccc;
+          padding: 0 10px;
+
+          > a {
+            float: right;
+            color: #fff;
+
+            &:hover,
+            &:focus {
+              color: #00a0e9;
+            }
+          }
+        }
+
+        > ul {
+          // height: 407px;
+          overflow-y: scroll;
+          -ms-overflow-style: none;
+          overflow: -moz-scrollbars-none;
+
+          &::-webkit-scrollbar {
+            width: 0 !important;
+            height: 0 !important;
+          }
+
+          > li {
+            width: 100%;
+            line-height: 52px;
+            height: 52px;
+            display: flex;
+            flex-shrink: 0;
+            flex-grow: 0;
+            align-items: flex-start;
+            justify-content: flex-start;
+            flex-wrap: nowrap;
+            border-bottom: 1px dashed rgba(255, 255, 255, 0.4);
+
+            > i.fa {
+              width: 52px;
+              height: 52px;
+              line-height: 52px;
+              text-align: center;
+              flex-shrink: 0;
+              flex-grow: 0;
+
+              &.fa-circle {
+                color: #67C23A;
+              }
+
+              &.fa-circle-o {
+                color: #E6A23C;
+              }
+
+              &.fa-exchange {
+                color: #409EFF;
+              }
+
+              &.fa-warning {
+                color: #F56C6C;
+              }
+            }
+
+            > span {
+              color: #999;
+              display: block;
+              width: 9.5em;
+              margin-right: 20px;
+              font-size: 13px;
+              flex-shrink: 0;
+              flex-grow: 0;
+            }
+
+            > h5, h6 {
+              text-overflow: ellipsis;
+              overflow: hidden;
+              white-space: nowrap;
+              line-height: 22px;
+              font-size: 14px;
+              padding-left: 20px;
+              margin: 15px 0;
+              border-left: 1px solid #666;
+              color: #fff;
+            }
+
+            &:last-child {
+              border-bottom: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.scheduling {
+  > div.sifi {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    padding: 10px 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+    margin-top: -20px;
+    position: relative;
+
+    > .el-select {
+      width: 120px;
+      margin-left: 5px;
+    }
+
+    > .el-input {
+      width: 180px;
+      margin-left: 5px;
+    }
+
+    > .el-date-editor {
+      width: 360px;
+    }
+
+    > .el-button {
+      margin: 0 0 0 5px;
+
+      &.updata {
+        position: absolute;
+        right: 10px;
+      }
+    }
+  }
+}
+
+.signInput {
+  input {
+    text-align: center;
+    opacity: 0.6;
+    transition: opacity 0.3s;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+
+    &:focus {
+      opacity: 1;
+    }
+  }
+}

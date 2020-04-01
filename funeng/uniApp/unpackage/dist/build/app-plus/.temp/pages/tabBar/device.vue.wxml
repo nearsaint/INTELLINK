@@ -1,0 +1,197 @@
+<template name="f88c9b82">
+  <view class="_view data-v-9882a860 device">
+    <view class="_view data-v-9882a860 search">
+      <view class="_view data-v-9882a860 input">
+        <text class="_text data-v-9882a860 iconfont"></text>
+        <input class="_input data-v-9882a860 input" type="text" confirm-type="search" placeholder="搜索您要找的设备" />
+      </view>
+      <button class="_button data-v-9882a860 inhaul" hover-class="hover">
+        <text class="_text data-v-9882a860 iconfont"></text>
+      </button>
+    </view>
+    <view class="_view data-v-9882a860 list">
+      <view class="_view data-v-9882a860 group">
+        <view class="_view data-v-9882a860 title">
+          <button class="_button data-v-9882a860 open iconfont" hover-class="hover"></button>
+          <view class="_view data-v-9882a860 dot"></view>
+          <text class="_text data-v-9882a860 name">组名: 通讯单元#0001</text>
+          <text class="_text data-v-9882a860 status">状态: 在线</text>
+          <view class="_view data-v-9882a860 teams">
+            <view class="_view data-v-9882a860 parend">
+              <text class="_text data-v-9882a860 all">总设备数 27 台</text>
+              <text class="_text data-v-9882a860 tip success">26台运行</text>
+              <text class="_text data-v-9882a860 tip warning">2台异常</text>
+              <text class="_text data-v-9882a860 tip off">1台停机</text>
+            </view>
+            <view class="_view data-v-9882a860 child">
+              <text class="_text data-v-9882a860 all">空压机数 17 台</text>
+              <text class="_text data-v-9882a860 tip success">16台运行</text>
+              <text class="_text data-v-9882a860 tip off">1台停机</text>
+            </view>
+            <view class="_view data-v-9882a860 child">
+              <text class="_text data-v-9882a860 all">制氮机数 15 台</text>
+              <text class="_text data-v-9882a860 tip success">15台运行</text>
+            </view>
+            <view class="_view data-v-9882a860 child">
+              <text class="_text data-v-9882a860 all">计量表数 2 台</text>
+              <text class="_text data-v-9882a860 tip success">2台运行</text>
+            </view>
+          </view>
+        </view>
+        <view class="_view data-v-9882a860 content ul">
+          <button class="_button data-v-9882a860 li" hover-class="hover" bindtap="handleProxy" data-eventid="{{'EhK-0'}}" data-comkey="{{$k}}">
+            <view class="_view data-v-9882a860 image">
+              <view class="_view data-v-9882a860 i"></view>
+            </view>
+            <view class="_view data-v-9882a860 text">
+              <text class="_text data-v-9882a860 name">空压机#10005</text>
+              <text class="_text data-v-9882a860 status">状态: 正常</text>
+            </view>
+            <text class="_text data-v-9882a860 iconfont"></text>
+          </button>
+          <button class="_button data-v-9882a860 li" hover-class="hover" bindtap="handleProxy" data-eventid="{{'Yu8-1'}}" data-comkey="{{$k}}">
+            <view class="_view data-v-9882a860 image">
+              <view class="_view data-v-9882a860 i"></view>
+            </view>
+            <view class="_view data-v-9882a860 text">
+              <text class="_text data-v-9882a860 name">空压机#10005</text>
+              <text class="_text data-v-9882a860 status">状态: 正常</text>
+            </view>
+            <text class="_text data-v-9882a860 iconfont"></text>
+          </button>
+          <button class="_button data-v-9882a860 li" hover-class="hover" bindtap="handleProxy" data-eventid="{{'xnk-2'}}" data-comkey="{{$k}}">
+            <view class="_view data-v-9882a860 image">
+              <view class="_view data-v-9882a860 i"></view>
+            </view>
+            <view class="_view data-v-9882a860 text">
+              <text class="_text data-v-9882a860 name">空压机#10005</text>
+              <text class="_text data-v-9882a860 status">状态: 正常</text>
+            </view>
+            <text class="_text data-v-9882a860 iconfont"></text>
+          </button>
+          <button class="_button data-v-9882a860 li" hover-class="hover" bindtap="handleProxy" data-eventid="{{'q63-3'}}" data-comkey="{{$k}}">
+            <view class="_view data-v-9882a860 image">
+              <view class="_view data-v-9882a860 i"></view>
+            </view>
+            <view class="_view data-v-9882a860 text">
+              <text class="_text data-v-9882a860 name">空压机#10005</text>
+              <text class="_text data-v-9882a860 status">状态: 正常</text>
+            </view>
+            <text class="_text data-v-9882a860 iconfont"></text>
+          </button>
+          <button class="_button data-v-9882a860 li" hover-class="hover" bindtap="handleProxy" data-eventid="{{'bPH-4'}}" data-comkey="{{$k}}">
+            <view class="_view data-v-9882a860 image">
+              <view class="_view data-v-9882a860 i"></view>
+            </view>
+            <view class="_view data-v-9882a860 text">
+              <text class="_text data-v-9882a860 name">空压机#10005</text>
+              <text class="_text data-v-9882a860 status">状态: 正常</text>
+            </view>
+            <text class="_text data-v-9882a860 iconfont"></text>
+          </button>
+          <button class="_button data-v-9882a860 li" hover-class="hover" bindtap="handleProxy" data-eventid="{{'vPr-5'}}" data-comkey="{{$k}}">
+            <view class="_view data-v-9882a860 image">
+              <view class="_view data-v-9882a860 i"></view>
+            </view>
+            <view class="_view data-v-9882a860 text">
+              <text class="_text data-v-9882a860 name">空压机#10005</text>
+              <text class="_text data-v-9882a860 status">状态: 正常</text>
+            </view>
+            <text class="_text data-v-9882a860 iconfont"></text>
+          </button>
+        </view>
+      </view>
+      <view class="_view data-v-9882a860 group">
+        <view class="_view data-v-9882a860 title">
+          <button class="_button data-v-9882a860 open iconfont" hover-class="hover"></button>
+          <view class="_view data-v-9882a860 dot"></view>
+          <text class="_text data-v-9882a860 name">组名: 通讯单元#0001</text>
+          <text class="_text data-v-9882a860 status">状态: 在线</text>
+          <view class="_view data-v-9882a860 teams">
+            <view class="_view data-v-9882a860 parend">
+              <text class="_text data-v-9882a860 all">总设备数 27 台</text>
+              <text class="_text data-v-9882a860 tip success">26台运行</text>
+              <text class="_text data-v-9882a860 tip warning">2台异常</text>
+              <text class="_text data-v-9882a860 tip off">1台停机</text>
+            </view>
+            <view class="_view data-v-9882a860 child">
+              <text class="_text data-v-9882a860 all">空压机数 17 台</text>
+              <text class="_text data-v-9882a860 tip success">16台运行</text>
+              <text class="_text data-v-9882a860 tip off">1台停机</text>
+            </view>
+            <view class="_view data-v-9882a860 child">
+              <text class="_text data-v-9882a860 all">制氮机数 15 台</text>
+              <text class="_text data-v-9882a860 tip success">15台运行</text>
+            </view>
+            <view class="_view data-v-9882a860 child">
+              <text class="_text data-v-9882a860 all">计量表数 2 台</text>
+              <text class="_text data-v-9882a860 tip success">2台运行</text>
+            </view>
+          </view>
+        </view>
+        <view class="_view data-v-9882a860 content ul">
+          <button class="_button data-v-9882a860 li" hover-class="hover" bindtap="handleProxy" data-eventid="{{'bM4-6'}}" data-comkey="{{$k}}">
+            <view class="_view data-v-9882a860 image">
+              <view class="_view data-v-9882a860 i"></view>
+            </view>
+            <view class="_view data-v-9882a860 text">
+              <text class="_text data-v-9882a860 name">空压机#10005</text>
+              <text class="_text data-v-9882a860 status">状态: 正常</text>
+            </view>
+            <text class="_text data-v-9882a860 iconfont"></text>
+          </button>
+          <button class="_button data-v-9882a860 li" hover-class="hover" bindtap="handleProxy" data-eventid="{{'0UV-7'}}" data-comkey="{{$k}}">
+            <view class="_view data-v-9882a860 image">
+              <view class="_view data-v-9882a860 i"></view>
+            </view>
+            <view class="_view data-v-9882a860 text">
+              <text class="_text data-v-9882a860 name">空压机#10005</text>
+              <text class="_text data-v-9882a860 status">状态: 正常</text>
+            </view>
+            <text class="_text data-v-9882a860 iconfont"></text>
+          </button>
+          <button class="_button data-v-9882a860 li" hover-class="hover" bindtap="handleProxy" data-eventid="{{'6G6-8'}}" data-comkey="{{$k}}">
+            <view class="_view data-v-9882a860 image">
+              <view class="_view data-v-9882a860 i"></view>
+            </view>
+            <view class="_view data-v-9882a860 text">
+              <text class="_text data-v-9882a860 name">空压机#10005</text>
+              <text class="_text data-v-9882a860 status">状态: 正常</text>
+            </view>
+            <text class="_text data-v-9882a860 iconfont"></text>
+          </button>
+          <button class="_button data-v-9882a860 li" hover-class="hover" bindtap="handleProxy" data-eventid="{{'KQw-9'}}" data-comkey="{{$k}}">
+            <view class="_view data-v-9882a860 image">
+              <view class="_view data-v-9882a860 i"></view>
+            </view>
+            <view class="_view data-v-9882a860 text">
+              <text class="_text data-v-9882a860 name">空压机#10005</text>
+              <text class="_text data-v-9882a860 status">状态: 正常</text>
+            </view>
+            <text class="_text data-v-9882a860 iconfont"></text>
+          </button>
+          <button class="_button data-v-9882a860 li" hover-class="hover" bindtap="handleProxy" data-eventid="{{'dyh-10'}}" data-comkey="{{$k}}">
+            <view class="_view data-v-9882a860 image">
+              <view class="_view data-v-9882a860 i"></view>
+            </view>
+            <view class="_view data-v-9882a860 text">
+              <text class="_text data-v-9882a860 name">空压机#10005</text>
+              <text class="_text data-v-9882a860 status">状态: 正常</text>
+            </view>
+            <text class="_text data-v-9882a860 iconfont"></text>
+          </button>
+          <button class="_button data-v-9882a860 li" hover-class="hover" bindtap="handleProxy" data-eventid="{{'fLL-11'}}" data-comkey="{{$k}}">
+            <view class="_view data-v-9882a860 image">
+              <view class="_view data-v-9882a860 i"></view>
+            </view>
+            <view class="_view data-v-9882a860 text">
+              <text class="_text data-v-9882a860 name">空压机#10005</text>
+              <text class="_text data-v-9882a860 status">状态: 正常</text>
+            </view>
+            <text class="_text data-v-9882a860 iconfont"></text>
+          </button>
+        </view>
+      </view>
+    </view>
+  </view>
+</template>

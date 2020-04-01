@@ -1,0 +1,719 @@
+<template>
+<div class="home">
+  <div class="box" style="top:555px;right:80px;">
+    <a :class="[page.zdj2==0? 'running':'',page.zdj2==1? 'stop':'',page.zdj2==2? 'offline':'',page.zdj2==3? 'standby':'',page.zdj2==4? 'alarm':'',page.zdj2==5? 'warning':'']" @click="goto(2)">
+      <h5>制氮机#2</h5>
+      <h6 :class="[page.zdj2_02_s==1||page.zdj2_02_s==3?'warning':'',page.zdj2_02_s==2||page.zdj2_02_s==4?'alarm':'']">
+        <i>氮气流量(m³/h)</i>
+        <span>{{page.zdj2_02}}</span>
+      </h6>
+      <h6 :class="[page.zdj2_01_s==1||page.zdj2_01_s==3?'warning':'',page.zdj2_01_s==2||page.zdj2_01_s==4?'alarm':'']">
+        <i>氮气纯度[含氧量](PPM)</i>
+        <span>{{page.zdj2_01}}</span>
+      </h6>
+      <h6 :class="[page.zdj2_03_s==1||page.zdj2_03_s==3?'warning':'',page.zdj2_03_s==2||page.zdj2_03_s==4?'alarm':'']">
+        <i>制氮机入口压力(Mpa)</i>
+        <span>{{page.zdj2_03}}</span>
+      </h6>
+      <h6 :class="[page.zdj2_04_s==1||page.zdj2_04_s==3?'warning':'',page.zdj2_04_s==2||page.zdj2_04_s==4?'alarm':'']">
+        <i>制氮机出口压力(Mpa)</i>
+        <span>{{page.zdj2_04}}</span>
+      </h6>
+      <h6 :class="[page.zdj2_05_s==1||page.zdj2_05_s==3?'warning':'',page.zdj2_05_s==2||page.zdj2_05_s==4?'alarm':'']">
+        <i>空气露点(°C)</i>
+        <span>{{page.zdj2_05}}</span>
+      </h6>
+      <h6 :class="[page.zdj2_06_s==1||page.zdj2_06_s==3?'warning':'',page.zdj2_06_s==2||page.zdj2_06_s==4?'alarm':'']">
+        <i>空气温度(°C)</i>
+        <span>{{page.zdj2_06}}</span>
+      </h6>
+    </a>
+  </div>
+  <!-- end .box -->
+  <div class="box" style="top:555px;right:280px;">
+    <a :class="[page.zdj1==0? 'running':'',page.zdj1==1? 'stop':'',page.zdj1==2? 'offline':'',page.zdj1==3? 'standby':'',page.zdj1==4? 'alarm':'',page.zdj1==5? 'warning':'']" @click="goto(1)">
+      <h5>制氮机#1</h5>
+      <h6 :class="[page.zdj1_02_s==1||page.zdj1_02_s==3?'warning':'',page.zdj1_02_s==2||page.zdj1_02_s==4?'alarm':'']">
+          <i>氮气流量(m³/h)</i>
+          <span>{{page.zdj1_02}}</span>
+        </h6>
+      <h6 :class="[page.zdj1_01_s==1||page.zdj1_01_s==3?'warning':'',page.zdj1_01_s==2||page.zdj1_01_s==4?'alarm':'']">
+          <i>氮气纯度[含氧量](PPM)</i>
+          <span>{{page.zdj1_01}}</span>
+        </h6>
+      <h6 :class="[page.zdj1_03_s==1||page.zdj1_03_s==3?'warning':'',page.zdj1_03_s==2||page.zdj1_03_s==4?'alarm':'']">
+          <i>制氮机入口压力(Mpa)</i>
+          <span>{{page.zdj1_03}}</span>
+        </h6>
+      <h6 :class="[page.zdj1_04_s==1||page.zdj1_04_s==3?'warning':'',page.zdj1_04_s==2||page.zdj1_04_s==4?'alarm':'']">
+          <i>制氮机出口压力(Mpa)</i>
+          <span>{{page.zdj1_04}}</span>
+        </h6>
+      <h6 :class="[page.zdj1_05_s==1||page.zdj1_05_s==3?'warning':'',page.zdj1_05_s==2||page.zdj1_05_s==4?'alarm':'']">
+          <i>空气露点(°C)</i>
+          <span>{{page.zdj1_05}}</span>
+        </h6>
+      <h6 :class="[page.zdj1_06_s==1||page.zdj1_06_s==3?'warning':'',page.zdj1_06_s==2||page.zdj1_06_s==4?'alarm':'']">
+          <i>空气温度(°C)</i>
+          <span>{{page.zdj1_06}}</span>
+        </h6>
+    </a>
+  </div>
+  <!-- end .box -->
+  <div class="box" style="top:230px;right:81px;">
+    <a :class="[page.kyj1==0? 'running':'',page.kyj1==1? 'stop':'',page.kyj1==2? 'offline':'',page.kyj1==3? 'standby':'',page.kyj1==4? 'alarm':'',page.kyj1==5? 'warning':'']" @click="goto(8)">
+      <h5>空压机#1</h5>
+      <h6 :class="[page.kyj1_07_s==1||page.kyj1_07_s==3?'warning':'',page.kyj1_07_s==2||page.kyj1_07_s==4?'alarm':'']">
+          <i>运行压力(kg/cm²)</i>
+          <span>{{page.kyj1_07}}</span>
+        </h6>
+      <h6 :class="[page.kyj1_02_s==1||page.kyj1_02_s==3?'warning':'',page.kyj1_02_s==2||page.kyj1_02_s==4?'alarm':'']">
+          <i>入口温度(°c)</i>
+          <span>{{page.kyj1_02}}</span>
+        </h6>
+      <h6 :class="[page.kyj1_03_s==1||page.kyj1_03_s==3?'warning':'',page.kyj1_03_s==2||page.kyj1_03_s==4?'alarm':'']">
+          <i>排气出口温度(°c)</i>
+          <span>{{page.kyj1_03}}</span>
+        </h6>
+      <h6 :class="[page.kyj1_04_s==1||page.kyj1_04_s==3?'warning':'',page.kyj1_04_s==2||page.kyj1_04_s==4?'alarm':'']">
+          <i>电流值(A)</i>
+          <span>{{page.kyj1_04}}</span>
+        </h6>
+      <h6 :class="[page.kyj1_05_s==1||page.kyj1_05_s==3?'warning':'',page.kyj1_05_s==2||page.kyj1_05_s==4?'alarm':'']">
+          <i>变频开度(Hz)</i>
+          <span>{{page.kyj1_05}}</span>
+        </h6>
+      <h6 :class="[page.kyj1_06_s==1||page.kyj1_06_s==3?'warning':'',page.kyj1_06_s==2||page.kyj1_06_s==4?'alarm':'']">
+          <i>运行时间(小时)</i>
+          <span>{{page.kyj1_06}}</span>
+        </h6>
+    </a>
+  </div>
+  <!-- end .box -->
+  <div class="box" style="top:255px;right:271px;">
+    <a :class="[page.kyj2==0? 'running':'',page.kyj2==1? 'stop':'',page.kyj2==2? 'offline':'',page.kyj2==3? 'standby':'',page.kyj2==4? 'alarm':'',page.kyj2==5? 'warning':'']" @click="goto(9)">
+      <h5>空压机#2</h5>
+      <h6 :class="[page.kyj2_01_s==1||page.kyj2_01_s==3?'warning':'',page.kyj2_01_s==2||page.kyj2_01_s==4?'alarm':'']">
+          <i>运行压力(kg/cm²)</i>
+          <span>{{page.kyj2_01}}</span>
+        </h6>
+      <h6 :class="[page.kyj2_02_s==1||page.kyj2_02_s==3?'warning':'',page.kyj2_02_s==2||page.kyj2_02_s==4?'alarm':'']">
+          <i>在线压力(kg/cm²)</i>
+          <span>{{page.kyj2_02}}</span>
+        </h6>
+      <h6 :class="[page.kyj2_03_s==1||page.kyj2_03_s==3?'warning':'',page.kyj2_03_s==2||page.kyj2_03_s==4?'alarm':'']">
+          <i>排气出口温度(°C)</i>
+          <span>{{page.kyj2_03}}</span>
+        </h6>
+      <h6 :class="[page.kyj2_04_s==1||page.kyj2_04_s==3?'warning':'',page.kyj2_04_s==2||page.kyj2_04_s==4?'alarm':'']">
+          <i>运行时间(小时)</i>
+          <span>{{page.kyj2_04}}</span>
+        </h6>
+    </a>
+  </div>
+  <!-- end .box -->
+  <div class="box" style="top:255px;right:461px;">
+    <a :class="[page.kyj3==0? 'running':'',page.kyj3==1? 'stop':'',page.kyj3==2? 'offline':'',page.kyj3==3? 'standby':'',page.kyj3==4? 'alarm':'',page.kyj3==5? 'warning':'']" @click="goto(10)">
+      <h5>空压机#3</h5>
+      <h6 :class="[page.kyj3_01_s==1||page.kyj3_01_s==3?'warning':'',page.kyj3_01_s==2||page.kyj3_01_s==4?'alarm':'']">
+          <i>运行压力(kg/cm²)</i>
+          <span>{{page.kyj3_01}}</span>
+        </h6>
+      <h6 :class="[page.kyj3_02_s==1||page.kyj3_02_s==3?'warning':'',page.kyj3_02_s==2||page.kyj3_02_s==4?'alarm':'']">
+          <i>在线压力(kg/cm²)</i>
+          <span>{{page.kyj3_02}}</span>
+        </h6>
+      <h6 :class="[page.kyj3_03_s==1||page.kyj3_03_s==3?'warning':'',page.kyj3_03_s==2||page.kyj3_03_s==4?'alarm':'']">
+          <i>排气出口温度(°C)</i>
+          <span>{{page.kyj3_03}}</span>
+        </h6>
+      <h6 :class="[page.kyj3_04_s==1||page.kyj3_04_s==3?'warning':'',page.kyj3_04_s==2||page.kyj3_04_s==4?'alarm':'']">
+          <i>运行时间(小时)</i>
+          <span>{{page.kyj3_04}}</span>
+        </h6>
+    </a>
+  </div>
+  <!-- end .box -->
+  <div class="box" style="bottom:60px;right:321px;">
+    <a :class="[page.jlb_yskqdcj==0? 'running':'',page.jlb_yskqdcj==1? 'stop':'',page.jlb_yskqdcj==2? 'offline':'',page.jlb_yskqdcj==3? 'standby':'',page.jlb_yskqdcj==4? 'alarm':'',page.jlb_yskqdcj==5? 'warning':'']" @click="goto(3)">
+      <h5>计量表:压缩空气到车间</h5>
+      <h6 :class="[page.jlb_yskqdcj_01_s==1||page.jlb_yskqdcj_01_s==3?'warning':'',page.jlb_yskqdcj_01_s==2||page.jlb_yskqdcj_01_s==4?'alarm':'']">
+          <i>实时流量(m³/min)</i>
+          <span>{{page.jlb_yskqdcj_01}}</span>
+        </h6>
+      <h6 :class="[page.jlb_yskqdcj_02_s==1||page.jlb_yskqdcj_02_s==3?'warning':'',page.jlb_yskqdcj_02_s==2||page.jlb_yskqdcj_02_s==4?'alarm':'']">
+          <i>累计流量(m³)</i>
+          <span>{{page.jlb_yskqdcj_02}}</span>
+        </h6>
+    </a>
+  </div>
+  <!-- end .box -->
+  <div class="box" style="bottom:60px;left:488px;">
+    <a :class="[page.jlb_dqdcj==0? 'running':'',page.jlb_dqdcj==1? 'stop':'',page.jlb_dqdcj==2? 'offline':'',page.jlb_dqdcj==3? 'standby':'',page.jlb_dqdcj==4? 'alarm':'',page.jlb_dqdcj==5? 'warning':'']" @click="goto(5)">
+      <h5>计量表:氮气到车间</h5>
+      <h6 :class="[page.jlb_dqdcj_01_s==1||page.jlb_dqdcj_01_s==3?'warning':'',page.jlb_dqdcj_01_s==2||page.jlb_dqdcj_01_s==4?'alarm':'']">
+          <i>实时流量(m³/h)</i>
+          <span>{{page.jlb_dqdcj_01}}</span>
+        </h6>
+      <h6 :class="[page.jlb_dqdcj_02_s==1||page.jlb_dqdcj_02_s==3?'warning':'',page.jlb_dqdcj_02_s==2||page.jlb_dqdcj_02_s==4?'alarm':'']">
+          <i>累计流量(m³)</i>
+          <span>{{page.jlb_dqdcj_02}}</span>
+        </h6>
+    </a>
+  </div>
+  <!-- end .box -->
+  <div class="box" style="bottom:60px;right:521px;">
+    <a :class="[page.jlb_yskqdzdj==0? 'running':'',page.jlb_yskqdzdj==1? 'stop':'',page.jlb_yskqdzdj==2? 'offline':'',page.jlb_yskqdzdj==3? 'standby':'',page.jlb_yskqdzdj==4? 'alarm':'',page.jlb_yskqdzdj==5? 'warning':'']" @click="goto(4)">
+      <h5>计量表:压缩空气到制氮机</h5>
+      <h6 :class="[page.jlb_yskqdzdj_01_s==1||page.jlb_yskqdzdj_01_s==3?'warning':'',page.jlb_yskqdzdj_01_s==2||page.jlb_yskqdzdj_01_s==4?'alarm':'']">
+          <i>实时流量(m³/min)</i>
+          <span>{{page.jlb_yskqdzdj_01}}</span>
+        </h6>
+      <h6 :class="[page.jlb_yskqdzdj_02_s==1||page.jlb_yskqdzdj_02_s==3?'warning':'',page.jlb_yskqdzdj_02_s==2||page.jlb_yskqdzdj_021_s==4?'alarm':'']">
+          <i>累计流量(m³)</i>
+          <span>{{page.jlb_yskqdzdj_02}}</span>
+        </h6>
+    </a>
+  </div>
+  <!-- end .box -->
+
+  <div class="box" style="top:21px;right:21px;">
+    <a :class="[page.zndb1==0? 'running':'',page.zndb1==1? 'stop':'',page.zndb1==2? 'offline':'',page.zndb1==3? 'standby':'',page.zndb1==4? 'alarm':'',page.zndb1==5? 'warning':'']" @click="goto(6)">
+      <h5>智能电表</h5>
+      <h6 :class="[page.zndb1_01_s==1||page.zndb1_01_s==3?'warning':'',page.zndb1_01_s==2||page.zndb1_01_s==4?'alarm':'']">
+          <i>组合总有功(KW/h)</i>
+          <span>{{parseInt(page.zndb1_01) + parseInt(page.zndb2_01)}}</span>
+        </h6>
+    </a>
+  </div>
+  <!-- end .box -->
+
+
+  <div class="box" style="top:590px;left:186px;">
+    <a :class="[page.gzj1==0? 'running':'',page.gzj1==1? 'stop':'',page.gzj1==2? 'offline':'',page.gzj1==3? 'standby':'',page.gzj1==4? 'alarm':'',page.gzj1==5? 'warning':'']" @click="goto(14)">
+      <h5>干燥机#1</h5>
+      <h6 :class="[page.gzj1_01_s==1||page.gzj1_01_s==3?'warning':'',page.gzj1_01_s==2||page.gzj1_01_s==4?'alarm':'']">
+          <i>露点温度(°C)</i>
+          <span>{{page.gzj1_01}}</span>
+        </h6>
+    </a>
+  </div>
+  <!-- end .box -->
+
+
+  <div class="box" style="top:590px;left:400px;">
+    <a :class="[page.gzj2==0? 'running':'',page.gzj2==1? 'stop':'',page.gzj2==2? 'offline':'',page.gzj2==3? 'standby':'',page.gzj2==4? 'alarm':'',page.gzj2==5? 'warning':'']" @click="goto(15)">
+      <h5>干燥机#2</h5>
+      <h6 :class="[page.gzj2_01_s==1||page.gzj2_01_s==3?'warning':'',page.gzj2_01_s==2||page.gzj2_01_s==4?'alarm':'']">
+            <i>露点温度(°C)</i>
+            <span>{{page.gzj2_01}}</span>
+          </h6>
+    </a>
+  </div>
+  <!-- end .box -->
+  <div class="box" style="top:590px;left:590px;">
+    <a :class="[page.gzj3==0? 'running':'',page.gzj3==1? 'stop':'',page.gzj3==2? 'offline':'',page.gzj3==3? 'standby':'',page.gzj3==4? 'alarm':'',page.gzj3==5? 'warning':'']" @click="goto(16)">
+      <h5>干燥机#3</h5>
+      <h6 :class="[page.gzj3_01_s==1||page.gzj3_01_s==3?'warning':'',page.gzj3_01_s==2||page.gzj3_01_s==4?'alarm':'']">
+              <i>露点温度(°C)</i>
+              <span>{{page.gzj3_01}}</span>
+            </h6>
+    </a>
+  </div>
+  <!-- end .box -->
+
+
+  <div class="tip">
+    <span class="running">正常</span>
+    <span class="standby">就绪</span>
+    <span class="stop">停止</span>
+    <span class="off">离线</span>
+    <span class="warning">警告</span>
+    <span class="alarm">错误</span>
+  </div>
+</div>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      machine: [],
+      page: {
+        //智能电表
+        zndb1: 2,
+        zndb1_01: 0,
+        zndb1_01_s: 0,
+
+        zndb2: 2,
+        zndb2_01: 0,
+        zndb2_01_s: 0,
+
+        //制氮机
+        zdj1: 2,
+        zdj1_01: 0,
+        zdj1_02: 0,
+        zdj1_03: 0,
+        zdj1_04: 0,
+        zdj1_05: 0,
+        zdj1_06: 0,
+        zdj1_01_s: 0,
+        zdj1_02_s: 0,
+        zdj1_03_s: 0,
+        zdj1_04_s: 0,
+        zdj1_05_s: 0,
+        zdj1_06_s: 0,
+
+        zdj2: 2,
+        zdj2_01: 0,
+        zdj2_02: 0,
+        zdj2_03: 0,
+        zdj2_04: 0,
+        zdj2_05: 0,
+        zdj2_06: 0,
+        zdj2_01_s: 0,
+        zdj2_02_s: 0,
+        zdj2_03_s: 0,
+        zdj2_04_s: 0,
+        zdj2_05_s: 0,
+        zdj2_06_s: 0,
+
+        //空压机
+        kyj1: 2,
+        kyj1_01: 0,
+        kyj1_02: 0,
+        kyj1_03: 0,
+        kyj1_04: 0,
+        kyj1_05: 0,
+        kyj1_06: 0,
+        kyj1_07: 0,
+        kyj1_01_s: 0,
+        kyj1_02_s: 0,
+        kyj1_03_s: 0,
+        kyj1_04_s: 0,
+        kyj1_05_s: 0,
+        kyj1_06_s: 0,
+        kyj1_07_s: 0,
+
+        kyj2: 2,
+        kyj2_01: 0,
+        kyj2_02: 0,
+        kyj2_03: 0,
+        kyj2_04: 0,
+        kyj2_01_s: 0,
+        kyj2_02_s: 0,
+        kyj2_03_s: 0,
+        kyj2_04_s: 0,
+
+        kyj3: 2,
+        kyj3_01: 0,
+        kyj3_02: 0,
+        kyj3_03: 0,
+        kyj3_04: 0,
+        kyj3_01_s: 0,
+        kyj3_02_s: 0,
+        kyj3_03_s: 0,
+        kyj3_04_s: 0,
+
+        // 计量表
+        jlb_yskqdzdj: 2,
+        jlb_yskqdzdj_01: 0,
+        jlb_yskqdzdj_02: 0,
+
+        jlb_dqdcj: 2,
+        jlb_dqdcj_01: 0,
+        jlb_dqdcj_02: 0,
+
+        jlb_yskqdcj: 2,
+        jlb_yskqdcj_01: 0,
+        jlb_yskqdcj_02: 0,
+
+        //干燥机
+        gzj1: 2,
+        gzj1_01: 0,
+        gzj1_01_s: 0,
+
+        gzj2: 2,
+        gzj2_01: 0,
+        gzj2_01_s: 0,
+
+        gzj3: 2,
+        gzj3_01: 0,
+        gzj3_01_s: 0,
+      }
+    }
+  },
+  beforeCreate: function() {},
+  created: function() {
+    this.initWebSocket();
+  },
+  mounted: function() {
+    let that = this;
+    // this.sendProperty()　　　　　
+  },
+  beforeDestroy: function() {
+    this.websock.close();
+  },
+  destroyed: function() {
+    this.websock.close();
+  },
+  methods: {
+    //WebSocket
+    initWebSocket: function() {　
+      // const link = 'ws://192.168.0.13:3150/Extension/GSocket/WSHandler.ashx';　　　　　　　
+      const link = 'wss://38798879.xyz/Extension/GSocket/WSHandler.ashx';　　　　　　　
+      this.websock = new WebSocket(link);　　　　　　　　
+      this.websock.onopen = this.websocketonopen;
+      this.websock.onerror = this.websocketonerror;
+      this.websock.onmessage = this.websocketonmessage;　　　　　　　　
+      this.websock.onclose = this.websocketclose;　　　　
+    },
+    websocketonopen: function(data) {　　　　　　　　
+      console.log("WebSocket连接成功");　
+      this.sendProperty()　　　　　
+    },
+    websocketonerror: function(e) {
+      console.log("WebSocket连接发生错误" + e);　　　　　　
+    },
+    websocketonmessage: function(e) {　
+      let that = this;
+      let data = JSON.parse(e.data);
+      console.log(data);
+      if (data.Data.InitialMachineDtos) {
+        that.machine = data.Data.InitialMachineDtos;
+      } else {
+        for (let i in that.machine) {
+          if (data.Data.MachineId == that.machine[i].MachineId) {
+            // console.log(i)
+            if (data.Data.MachineStatus) {
+              that.machine[i].MachineStatus = data.Date.MachineStatus;
+            }
+            if (data.Data.RTags) {
+              for (let n in data.Data.RTags) {
+                // console.log(n)
+                for (let s in that.machine[i].RTags) {
+                  // console.log(s)
+                  if (data.Data.RTags[n].TagId == that.machine[i].RTags[s].TagId) {
+                    that.machine[i].RTags[s] = data.Data.RTags[n];
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      that.getProperty_need();
+    },
+    goto: function(machineId) {
+      this.$router.push({
+        path: 'machine/propertys/' + machineId + '/list',
+        query: {
+          machineId: machineId
+        }
+      })
+    },
+    sendProperty: function() {
+      let that = this;
+      let data = {
+        Key: 0,
+        Data: {
+          MachineIds: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+        },
+      };
+      console.log(JSON.stringify(data));
+      that.websock.send(JSON.stringify(data), function(res) {
+        console.log(res)
+      })
+    },
+    getProperty_need: function() {
+      let that = this
+      // console.log("getProperty_need")
+      if (that.machine.length > 0) {
+        for (let i in that.machine) {
+          if (that.machine[i].MachineId == 1) {
+            that.page.zdj1 = that.machine[i].MachineStatus;
+            for (let n in that.machine[i].RTags) {
+              if (that.machine[i].RTags[n].TagId == 1) {
+                that.page.zdj1_01 = that.machine[i].RTags[n].FValue.toFixed(2);
+                that.page.zdj1_01_s = that.machine[i].RTags[n].RTagAlarmType;
+              } else if (that.machine[i].RTags[n].TagId == 4) {
+                that.page.zdj1_02 = that.machine[i].RTags[n].FValue.toFixed(2);
+                that.page.zdj1_02_s = that.machine[i].RTags[n].RTagAlarmType;
+              } else if (that.machine[i].RTags[n].TagId == 5) {
+                that.page.zdj1_03 = that.machine[i].RTags[n].FValue.toFixed(2);
+                that.page.zdj1_03_s = that.machine[i].RTags[n].RTagAlarmType;
+              } else if (that.machine[i].RTags[n].TagId == 6) {
+                that.page.zdj1_04 = that.machine[i].RTags[n].FValue.toFixed(2);
+                that.page.zdj1_04_s = that.machine[i].RTags[n].RTagAlarmType;
+              } else if (that.machine[i].RTags[n].TagId == 3) {
+                that.page.zdj1_05 = that.machine[i].RTags[n].FValue.toFixed(2);
+                that.page.zdj1_05_s = that.machine[i].RTags[n].RTagAlarmType;
+              } else if (that.machine[i].RTags[n].TagId == 2) {
+                that.page.zdj1_06 = that.machine[i].RTags[n].FValue.toFixed(2);
+                that.page.zdj1_06_s = that.machine[i].RTags[n].RTagAlarmType;
+              }
+            }
+          } else if (that.machine[i].MachineId == 2) {
+            that.page.zdj2 = that.machine[i].MachineStatus;
+            for (let n in that.machine[i].RTags) {
+              if (that.machine[i].RTags[n].TagId == 1) {
+                that.page.zdj2_01 = that.machine[i].RTags[n].FValue.toFixed(2);
+                that.page.zdj2_01_s = that.machine[i].RTags[n].RTagAlarmType;
+              } else if (that.machine[i].RTags[n].TagId == 4) {
+                that.page.zdj2_02 = that.machine[i].RTags[n].FValue.toFixed(2);
+                that.page.zdj2_02_s = that.machine[i].RTags[n].RTagAlarmType;
+              } else if (that.machine[i].RTags[n].TagId == 5) {
+                that.page.zdj2_03 = that.machine[i].RTags[n].FValue.toFixed(2);
+                that.page.zdj2_03_s = that.machine[i].RTags[n].RTagAlarmType;
+              } else if (that.machine[i].RTags[n].TagId == 6) {
+                that.page.zdj2_04 = that.machine[i].RTags[n].FValue.toFixed(2);
+                that.page.zdj2_04_s = that.machine[i].RTags[n].RTagAlarmType;
+              } else if (that.machine[i].RTags[n].TagId == 3) {
+                that.page.zdj2_05 = that.machine[i].RTags[n].FValue.toFixed(2);
+                that.page.zdj2_05_s = that.machine[i].RTags[n].RTagAlarmType;
+              } else if (that.machine[i].RTags[n].TagId == 2) {
+                that.page.zdj2_06 = that.machine[i].RTags[n].FValue.toFixed(2);
+                that.page.zdj2_06_s = that.machine[i].RTags[n].RTagAlarmType;
+              }
+            }
+          } else if (that.machine[i].MachineId == 3) {
+            that.page.jlb_yskqdcj = that.machine[i].MachineStatus;
+            for (let n in that.machine[i].RTags) {
+              if (that.machine[i].RTags[n].TagId == 16) {
+                that.page.jlb_yskqdcj_01 = that.machine[i].RTags[n].FValue.toFixed(2);
+                that.page.jlb_yskqdcj_01_s = that.machine[i].RTags[n].RTagAlarmType;
+              } else if (that.machine[i].RTags[n].TagId == 17) {
+                that.page.jlb_yskqdcj_02 = that.machine[i].RTags[n].FValue.toFixed(2);
+                that.page.jlb_yskqdcj_02_s = that.machine[i].RTags[n].RTagAlarmType;
+              }
+            }
+          } else if (that.machine[i].MachineId == 4) {
+            that.page.jlb_yskqdzdj = that.machine[i].MachineStatus;
+            for (let n in that.machine[i].RTags) {
+              if (that.machine[i].RTags[n].TagId == 16) {
+                that.page.jlb_yskqdzdj_01 = that.machine[i].RTags[n].FValue.toFixed(2);
+              } else if (that.machine[i].RTags[n].TagId == 17) {
+                that.page.jlb_yskqdzdj_02 = that.machine[i].RTags[n].FValue.toFixed(2);
+                that.page.jlb_yskqdzdj_02_s = that.machine[i].RTags[n].RTagAlarmType;
+              }
+            }
+          } else if (that.machine[i].MachineId == 5) {
+            that.page.jlb_dqdcj = that.machine[i].MachineStatus;
+            for (let n in that.machine[i].RTags) {
+              if (that.machine[i].RTags[n].TagId == 16) {
+                that.page.jlb_dqdcj_01 = that.machine[i].RTags[n].FValue.toFixed(2);
+                that.page.jlb_dqdcj_01_s = that.machine[i].RTags[n].RTagAlarmType;
+              } else if (that.machine[i].RTags[n].TagId == 17) {
+                that.page.jlb_dqdcj_02 = that.machine[i].RTags[n].FValue.toFixed(2);
+                that.page.jlb_dqdcj_02_s = that.machine[i].RTags[n].RTagAlarmType;
+              }
+            }
+          } else if (that.machine[i].MachineId == 6) {
+            that.page.zndb1 = that.machine[i].MachineStatus;
+            for (let n in that.machine[i].RTags) {
+              if (that.machine[i].RTags[n].TagId == 42) {
+                that.page.zndb1_01 = that.machine[i].RTags[n].FValue.toFixed(2);
+                that.page.zndb1_01_s = that.machine[i].RTags[n].RTagAlarmType;
+              }
+            }
+          } else if (that.machine[i].MachineId == 7) {
+            that.page.zndb2 = that.machine[i].MachineStatus;
+            for (let n in that.machine[i].RTags) {
+              if (that.machine[i].RTags[n].TagId == 42) {
+                that.page.zndb2_01 = that.machine[i].RTags[n].FValue.toFixed(2);
+                that.page.zndb2_01_s = that.machine[i].RTags[n].RTagAlarmType;
+              }
+            }
+          } else if (that.machine[i].MachineId == 8) {
+            that.page.kyj1 = that.machine[i].MachineStatus;
+            for (let n in that.machine[i].RTags) {
+              if (that.machine[i].RTags[n].TagId == 122) {
+                that.page.kyj1_03 = that.machine[i].RTags[n].FValue.toFixed(2);
+                that.page.kyj1_03_s = that.machine[i].RTags[n].RTagAlarmType;
+              } else if (that.machine[i].RTags[n].TagId == 113) {
+                that.page.kyj1_07 = that.machine[i].RTags[n].FValue.toFixed(2);
+                that.page.kyj1_07_s = that.machine[i].RTags[n].RTagAlarmType;
+              } else if (that.machine[i].RTags[n].TagId == 124) {
+                that.page.kyj1_02 = that.machine[i].RTags[n].FValue.toFixed(2);
+                that.page.kyj1_02_s = that.machine[i].RTags[n].RTagAlarmType;
+              } else if (that.machine[i].RTags[n].TagId == 131) {
+                that.page.kyj1_04 = that.machine[i].RTags[n].FValue.toFixed(2);
+                that.page.kyj1_04_s = that.machine[i].RTags[n].RTagAlarmType;
+              } else if (that.machine[i].RTags[n].TagId == 130) {
+                that.page.kyj1_05 = (that.machine[i].RTags[n].FValue / 3000 * 50).toFixed(1);
+                that.page.kyj1_05_s = that.machine[i].RTags[n].RTagAlarmType;
+              } else if (that.machine[i].RTags[n].TagId == 134) {
+                that.page.kyj1_06 = that.machine[i].RTags[n].FValue.toFixed(2);
+                that.page.kyj1_06_s = that.machine[i].RTags[n].RTagAlarmType;
+              }
+            }
+          } else if (that.machine[i].MachineId == 9) {
+            that.page.kyj2 = that.machine[i].MachineStatus;
+            for (let n in that.machine[i].RTags) {
+              if (that.machine[i].RTags[n].TagId == 70) {
+                that.page.kyj2_01 = that.machine[i].RTags[n].FValue.toFixed(2);
+                that.page.kyj2_01_s = that.machine[i].RTags[n].RTagAlarmType;
+              } else if (that.machine[i].RTags[n].TagId == 73) {
+                that.page.kyj2_02 = that.machine[i].RTags[n].FValue.toFixed(2);
+                that.page.kyj2_02_s = that.machine[i].RTags[n].RTagAlarmType;
+              } else if (that.machine[i].RTags[n].TagId == 170) {
+                that.page.kyj2_03 = that.machine[i].RTags[n].FValue.toFixed(2);
+                that.page.kyj2_03_s = that.machine[i].RTags[n].RTagAlarmType;
+              } else if (that.machine[i].RTags[n].TagId == 50) {
+                that.page.kyj2_04 = that.machine[i].RTags[n].FValue.toFixed(2);
+                that.page.kyj2_04_s = that.machine[i].RTags[n].RTagAlarmType;
+              }
+            }
+          } else if (that.machine[i].MachineId == 10) {
+            that.page.kyj3 = that.machine[i].MachineStatus;
+            for (let n in that.machine[i].RTags) {
+              if (that.machine[i].RTags[n].TagId == 70) {
+                that.page.kyj3_01 = that.machine[i].RTags[n].FValue.toFixed(2);
+                that.page.kyj3_01_s = that.machine[i].RTags[n].RTagAlarmType;
+              } else if (that.machine[i].RTags[n].TagId == 73) {
+                that.page.kyj3_02 = that.machine[i].RTags[n].FValue.toFixed(2);
+                that.page.kyj3_02_s = that.machine[i].RTags[n].RTagAlarmType;
+              } else if (that.machine[i].RTags[n].TagId == 170) {
+                that.page.kyj3_03 = that.machine[i].RTags[n].FValue.toFixed(2);
+                that.page.kyj3_03_s = that.machine[i].RTags[n].RTagAlarmType;
+              } else if (that.machine[i].RTags[n].TagId == 50) {
+                that.page.kyj3_04 = that.machine[i].RTags[n].FValue.toFixed(2);
+                that.page.kyj3_04_s = that.machine[i].RTags[n].RTagAlarmType;
+              }
+            }
+          } else if (that.machine[i].MachineId == 14) {
+            that.page.gzj1 = that.machine[i].MachineStatus;
+            for (let n in that.machine[i].RTags) {
+              if (that.machine[i].RTags[n].TagId == 165) {
+                that.page.gzj1_01 = that.machine[i].RTags[n].FValue.toFixed(2);
+                that.page.gzj1_01_s = that.machine[i].RTags[n].RTagAlarmType;
+              }
+            }
+          } else if (that.machine[i].MachineId == 15) {
+            that.page.gzj2 = that.machine[i].MachineStatus;
+            for (let n in that.machine[i].RTags) {
+              if (that.machine[i].RTags[n].TagId == 165) {
+                that.page.gzj2_01 = that.machine[i].RTags[n].FValue.toFixed(2);
+                that.page.gzj2_01_s = that.machine[i].RTags[n].RTagAlarmType;
+              }
+            }
+          } else if (that.machine[i].MachineId == 16) {
+            that.page.gzj3 = that.machine[i].MachineStatus;
+            for (let n in that.machine[i].RTags) {
+              if (that.machine[i].RTags[n].TagId == 165) {
+                that.page.gzj3_01 = that.machine[i].RTags[n].FValue.toFixed(2);
+                that.page.gzj3_01_s = that.machine[i].RTags[n].RTagAlarmType;
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  computed: {},
+  components: {},
+}
+</script>
+
+<style lang="scss" scoped>
+.home {
+    height: 960px;
+    width: 1400px;
+    margin: 0 auto;
+    background-image: url("../assets/images/index_0001.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 90%;
+    position: relative;
+    > .box {
+        position: absolute;
+        > a {
+            color: #fff;
+            display: block;
+            min-width: 182px;
+            background: #999;
+            opacity: 0.8;
+            border-radius: 3px;
+            // border: 1px solid #ddd;
+            &.running {
+                background: #09BB07;
+            }
+            &.standby {
+                background: #00b7ee;
+            }
+            &.stop {
+                background: #666;
+            }
+            &.off {
+                background: #ccc;
+            }
+            &.warning {
+                background: #FFB400;
+            }
+            &.alarm {
+                background: #cd0615;
+            }
+            &:hover {
+                opacity: 1;
+                margin-top: -3px;
+                box-shadow: 0 3px 16px 0 rgba(4, 4, 4, 0.3);
+            }
+            > h5 {
+                font-size: 16px;
+                padding: 5px;
+                border-bottom: 1px solid rgba(255,255,255,0.6);
+            }
+            > h6 {
+                display: flex;
+                justify-content: space-between;
+                padding: 5px;
+                font-size: 13px;
+                border-bottom: 1px dotted rgba(255, 255, 255, 0.3);
+                > i {
+                    font-style: normal;
+                }
+                &:last-child {
+                    border-bottom: none;
+                }
+                &.alarm {
+                    background-color: rgba(255,0,0,0.9);
+                }
+                &.warning {
+                    background-color: rgba(255,192,0,0.9);
+                }
+            }
+        }
+    }
+}
+.tip {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    > span {
+        display: block;
+        margin: 10px;
+        padding-left: 20px;
+        border-left: 24px solid #ccc;
+        line-height: 24px;
+        font-size: 12px;
+        &.running {
+            border-color: #09BB07;
+        }
+        &.standby {
+            border-color: #00b7ee;
+        }
+        &.stop {
+            border-color: #666;
+        }
+        &.off {
+            border-color: #ccc;
+        }
+        &.warning {
+            border-color: #FFB400;
+        }
+        &.alarm {
+            border-color: #cd0615;
+        }
+    }
+}
+</style>

@@ -1,0 +1,134 @@
+.title {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+}
+.title > .bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #0355e5;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+    height: 160rpx;
+    width: 100%;
+    z-index: 1;
+}
+.title > .user {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+    width: 100%;
+    position: relative;
+    z-index: 2;
+    padding: 20rpx;
+}
+.title > .user > .avarat {
+      display: block;
+      width: 120rpx;
+      height: 120rpx;
+      border-radius: 50%;
+      border: 1rpx solid #ddd;
+}
+.title > .user > .text {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-flex-wrap: wrap;
+          -ms-flex-wrap: wrap;
+              flex-wrap: wrap;
+      padding: 0 20rpx;
+}
+.title > .user > .text > .name {
+        display: block;
+        width: 100%;
+        color: #fff;
+        font-size: 42rpx;
+}
+.title > .user > .text > .id {
+        display: block;
+        width: 100%;
+        color: #fff;
+        font-size: 28rpx;
+}
+.title > .user > .iconfont {
+      position: absolute;
+      top: 50%;
+      right: 20rpx;
+      -webkit-transform: translateY(-50%);
+          -ms-transform: translateY(-50%);
+              transform: translateY(-50%);
+      color: #fff;
+      border: none;
+      outline: none;
+      background: none;
+      font-size: 52rpx;
+}
+.title > .user > .iconfont::after {
+        border: none;
+}
+.title > .user > .iconfont.hover {
+        color: #ccc;
+}
+.ul {
+  margin-top: 20rpx;
+  border-top: 1rpx solid #ddd;
+}
+.ul > .li {
+    background: none;
+    border-bottom: 1rpx solid #ddd;
+    position: relative;
+    width: 100%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    border-radius: 0;
+    font-size: 32rpx;
+    color: #444;
+    padding-left: 100rpx;
+    line-height: 88rpx;
+}
+.ul > .li.hover {
+      background: #f9f9f9;
+}
+.ul > .li::after {
+      border: none;
+}
+.ul > .li > .tip {
+      position: absolute;
+      top: 0;
+      left: 20rpx;
+      height: 88rpx;
+      width: 88rpx;
+      font-size: 42rpx;
+      line-height: 88rpx;
+}
+.ul > .li > .front {
+      position: absolute;
+      top: 50%;
+      right: 20rpx;
+      -webkit-transform: translateY(-50%);
+          -ms-transform: translateY(-50%);
+              transform: translateY(-50%);
+      font-size: 28rpx;
+      color: #999;
+}
+

@@ -1,0 +1,198 @@
+.log {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+  position: relative;
+}
+.log > .title {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+    width: 100%;
+    background: #0355e5;
+    color: #fff;
+    padding-top: 50rpx;
+    position: relative;
+}
+.log > .title > .text {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-flex-wrap: wrap;
+          -ms-flex-wrap: wrap;
+              flex-wrap: wrap;
+      width: 100%;
+      position: absolute;
+      z-index: 10;
+      top: 0;
+      left: 0;
+      right: 0;
+      padding: 5rpx 0;
+      background: #007AFF;
+}
+.log > .title > .text > .device {
+        padding: 0 40rpx;
+        font-size: 30rpx;
+        color: #eee;
+        width: 100%;
+        margin: 0;
+        text-align: center;
+        -webkit-transition: font-size 0.3s;
+        -o-transition: font-size 0.3s;
+        transition: font-size 0.3s;
+        background: #007AFF;
+}
+.log > .content {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+    width: 100%;
+    padding: 0;
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+}
+.log > .content > .list {
+      padding: 10rpx;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      width: 100%;
+      -webkit-flex-wrap: wrap;
+          -ms-flex-wrap: wrap;
+              flex-wrap: wrap;
+}
+.log > .content > .list > .li {
+        border-left: 10rpx #ccc solid;
+        padding: 20rpx;
+        background: #f5f5f5;
+        margin-bottom: 10rpx;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-flex-wrap: wrap;
+            -ms-flex-wrap: wrap;
+                flex-wrap: wrap;
+        -webkit-box-pack: start;
+        -webkit-justify-content: flex-start;
+            -ms-flex-pack: start;
+                justify-content: flex-start;
+        width: 100%;
+        color: #999;
+}
+.log > .content > .list > .li.new {
+          background: rgba(255, 0, 0, 0.8);
+          color: #fff;
+          border-color: #900000;
+}
+.log > .content > .list > .li.new > .device {
+            color: #fff;
+}
+.log > .content > .list > .li > .device {
+          font-size: 32rpx;
+          color: #333;
+          width: 50%;
+          text-align: left;
+}
+.log > .content > .list > .li > .info {
+          font-size: 24rpx;
+          width: 50%;
+          text-align: right;
+}
+.log > .content > .list > .li > .time {
+          font-size: 24rpx;
+          width: 50%;
+}
+.log > .content > .list > .li > .tip {
+          font-size: 24rpx;
+          width: 50%;
+          text-align: right;
+}
+.search {
+  height: 100rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  background: #f5f5f5;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 14rpx 10rpx 14rpx 20rpx;
+  border-bottom: 1rpx solid #ddd;
+}
+.search > .input {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-flex-wrap: nowrap;
+        -ms-flex-wrap: nowrap;
+            flex-wrap: nowrap;
+    background: #fff;
+    border: 1rpx solid #ddd;
+    border-radius: 50rpx;
+    width: calc(100% - 82rpx);
+    height: 72rpx;
+    position: relative;
+}
+.search > .input > .iconfont {
+      position: absolute;
+      top: 0;
+      left: 10rpx;
+      height: 72rpx;
+      width: 72rpx;
+      line-height: 72rpx;
+      font-size: 42rpx;
+      text-align: center;
+      color: #ccc;
+}
+.search > .input > .input {
+      padding: 10rpx 10rpx 10rpx 94rpx;
+      font-size: 32rpx;
+      line-height: 52rpx;
+      height: 52rpx;
+}
+.inhaul {
+  border: none;
+  background: none;
+  outline: none;
+}
+.inhaul > .iconfont {
+    line-height: 72rpx;
+    height: 72rpx;
+    width: 72rpx;
+    text-align: center;
+    display: block;
+    font-size: 48rpx;
+    color: #999;
+    border-radius: 50%;
+}
+.inhaul.hover > .iconfont {
+    color: #ccc;
+}
+.inhaul::after {
+    border: none;
+}
+

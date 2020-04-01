@@ -1,0 +1,600 @@
+@charset "UTF-8";
+
+/*
+ * name: 'questionnaireEditBox.scss';
+ * author: 'NearSaint';
+ * time: '2019.09';
+ */
+@import "_mixin";
+
+.questionnaireEditBox {
+  padding-bottom: 60px;
+  position: relative;
+  min-height: calc(100vh - 124px);
+
+  > .info {
+    border: 1px solid #ddd;
+    margin: 20px 5px 0;
+    border-radius: 6px;
+    padding: 10px;
+    position: relative;
+
+    > h5 {
+      font-size: 13px;
+      color: #999;
+    }
+
+    > ul {
+      height: auto;
+      background-color: #fff;
+      border-radius: 0 5px 5px 0;
+      border-left: 6px solid #999;
+      margin-top: 10px;
+      padding: 15px;
+      transition: all 0.3s;
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+      overflow: hidden;
+
+      > div.btnContainer {
+        position: absolute;
+        top: -42px;
+        right: -84px;
+        display: block;
+        height: 42px;
+        width: 84px;
+        z-index: 1;
+        transition: all 0.3s;
+
+        > button {
+          background-color: #F56C6C;
+          cursor: pointer;
+          color: #fff;
+          height: 42px;
+          width: 42px;
+          line-height: 42px;
+          text-align: center;
+          border-radius: 0 5px 0 0;
+          outline: none;
+          border: none;
+          opacity: 0.9;
+          font-size: 18px;
+          transition: all 0.3s;
+
+          &:hover {
+            opacity: 1;
+            line-height: 42px;
+          }
+
+          &:active {
+            font-size: 16px;
+          }
+
+          &.edit {
+            background-color: #67C23A;
+            border-radius: 0 0 0 5px;
+          }
+        }
+      }
+
+      &:hover {
+        box-shadow: 0 0 13px #999;
+
+        > div.btnContainer {
+          top: 0;
+          right: 0;
+        }
+      }
+
+      > li.title {
+        width: 100%;
+        margin: 10px 0 20px;
+        padding-bottom: 20px;
+        border-bottom: 1px dashed #ddd;
+
+        h5 {
+          font-size: 24px;
+          color: #409EFF;
+          margin-bottom: 5px;
+        }
+
+        h6 {
+          font-size: 16px;
+          color: #999;
+        }
+      }
+
+      > li.item {
+        flex-grow: 1;
+        flex-shrink: 1;
+        width: 20%;
+        border-left: 1px solid #ddd;
+        padding: 5px 10px;
+        margin-bottom: 20px;
+
+        h5 {
+          font-size: 16px;
+          color: #409EFF;
+          margin-bottom: 5px;
+        }
+
+        h6 {
+          font-size: 12px;
+          color: #999;
+        }
+      }
+
+      > li.tipper {
+        flex-grow: 0;
+        flex-shrink: 0;
+        width: 20%;
+        margin-top: 20px;
+        border-left: 1px solid #ddd;
+        padding: 5px 10px;
+
+        h5 {
+          font-size: 14px;
+          color: #666;
+        }
+
+        h6 {
+          font-size: 12px;
+          color: #999;
+          margin-bottom: 5px;
+        }
+      }
+
+      > li.footer {
+        width: 100%;
+        border-left: 1px solid #ddd;
+        padding: 5px 10px;
+
+        h5 {
+          font-size: 14px;
+          color: #666;
+          max-width: 400px;
+          line-height: 16px;
+        }
+
+        h6 {
+          font-size: 12px;
+          color: #999;
+          margin-bottom: 5px;
+        }
+      }
+    }
+  }
+
+  > .main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: flex-start;
+
+    > ul.path {
+      margin-top: 20px;
+      width: calc(50% - 10px);
+      padding: 10px;
+      border-radius: 6px;
+      border: 1px solid #ddd;
+      flex-shrink: 0;
+      flex-grow: 0;
+      position: relative;
+
+      > h5 {
+        font-size: 13px;
+        color: #999;
+      }
+
+      > h6 {
+        font-size: 14px;
+        color: #666;
+        line-height: 140px;
+        text-align: center;
+
+        > a {
+          color: #999;
+          margin-left: 5 px;
+
+          &:hover {
+            color: #409EFF;
+          }
+        }
+      }
+
+      &.continue {
+        > li {
+          height: auto;
+          background-color: #fff;
+          border-radius: 0 5px 5px 0;
+          border-left: 6px solid #ddd;
+          margin-top: 10px;
+          padding: 10px;
+          transition: all 0.3s;
+          overflow: hidden;
+          position: relative;
+
+          &.active {
+            cursor: auto;
+            height: auto;
+
+            > ul.questions {
+              display: block;
+            }
+          }
+
+          > div.btnContainer {
+            position: absolute;
+            top: -42px;
+            right: -84px;
+            display: block;
+            height: 42px;
+            border-radius: 0 5px 0 5px;
+            overflow: hidden;
+
+            // width: 84px;
+            z-index: 1;
+            transition: all 0.3s;
+
+            > button {
+              background-color: #409EFF;
+              cursor: pointer;
+              color: #fff;
+              height: 42px;
+              width: 42px;
+              line-height: 42px;
+              text-align: center;
+              outline: none;
+              border: none;
+              opacity: 0.9;
+              font-size: 18px;
+              transition: all 0.3s;
+
+              &:hover {
+                opacity: 1;
+                line-height: 42px;
+              }
+
+              &:active {
+                font-size: 16px;
+              }
+
+              &.edit {
+                background-color: #67C23A;
+
+                // border-radius: 0 0 0 5px;
+             
+              }
+            }
+          }
+
+          &:hover {
+            box-shadow: 0 0 13px #999;
+
+            > div.btnContainer {
+              top: 0;
+              right: 0;
+            }
+          }
+
+          > h5 {
+            margin-bottom: 10px;
+            padding: 3px 3px 0;
+
+            > span {
+              font-size: 21px;
+              color: #409EFF;
+              display: block;
+              margin-bottom: 5px;
+            }
+
+            > i {
+              font-style: normal;
+              font-size: 16px;
+              color: #666;
+            }
+          }
+
+          > div.title {
+            display: flex;
+            justify-content: flex-start;
+
+            > h6 {
+              flex-grow: 1;
+              flex-shrink: 1;
+              margin: 10px 3px 3px;
+              border-left: 1px solid #ddd;
+              color: #666;
+              padding: 5px 10px 5px 15px;
+
+              > span {
+                display: block;
+                font-size: 16px;
+                margin-bottom: 5px;
+              }
+
+              > i {
+                font-size: 12px;
+                font-style: normal;
+              }
+            }
+          }
+
+          > ul.questions {
+            margin-top: 10px;
+            border-top: 1px solid #ddd;
+            display: none;
+
+            > li {
+              margin-top: 10px;
+              background-color: #f3f3f3;
+              padding: 0 10px;
+
+              > h5 {
+                background-color: #666;
+                color: #fff;
+                margin: 0 -10px;
+                padding: 10px;
+                line-height: 20px;
+                display: flex;
+                justify-content: space-between;
+
+                > i {
+                  font-size: 12px;
+                  font-style: normal;
+                  text-align: right;
+                  display: block;
+                  width: 100px;
+                  text-align: right;
+                }
+              }
+
+              > h6 {
+                border-bottom: 1px dashed #ddd;
+                padding: 10px 5px;
+                font-size: 14px;
+
+                &:last-child {
+                  border: none;
+                }
+
+                > span {
+                  // display: block;
+                  margin-bottom: 3px;
+                  line-height: 22px;
+                }
+
+                > i, b {
+                  line-height: 22px;
+                  font-size: 12px;
+                  padding: 0 8px;
+                  margin-left: 5px;
+                  background-color: #409EFF;
+                  border-radius: 50px;
+                  color: #fff;
+                  font-style: normal;
+                }
+
+                > b {
+                  background-color: #F56C6C;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  > .el-dropdown {
+    position: fixed;
+    bottom: 10px;
+    left: calc(50% + 32px);
+    transform: translateX(-50%);
+
+    button.add {
+      position: relative;
+      bottom: 0;
+      border-radius: 100px;
+      background-color: #409EFF;
+      padding: 0 40px;
+      line-height: 52px;
+      text-align: center;
+      color: #fff;
+      opacity: 0.8;
+      outline: none;
+      transition: all 0.3s;
+      cursor: pointer;
+
+      &:hover {
+        opacity: 1;
+        bottom: 6px;
+        box-shadow: 0 0 13px #999;
+      }
+
+      &:active {
+        bottom: 3px;
+        border: 2px solid #fff;
+      }
+    }
+  }
+
+  .el-dialog {
+    .main {
+      > ul {
+        > li {
+          display: flex;
+          justify-content: flex-start;
+          align-items: flex-start;
+          margin-bottom: 20px;
+          flex-wrap: wrap;
+
+          > span {
+            display: block;
+            width: 100%;
+            line-height: 20px;
+            margin-bottom: 5px;
+            color: #999;
+            font-size: 12px;
+            flex-shrink: 0;
+            flex-grow: 0;
+          }
+
+          > div {
+            width: 100%;
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+
+            > .el-input {
+              width: 600px;
+            }
+
+            > .el-select {
+              width: 190px;
+              flex-grow: 0;
+              flex-shrink: 0;
+            }
+
+            > .el-input-number {
+              width: 190px;
+            }
+
+            > .el-textarea {
+              width: 600px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.modelEdit {
+  div.el-dialog__body {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    align-items: stretch;
+  }
+
+  div.main {
+    width: calc(46% - 20px);
+  }
+
+  div.questions {
+    width: 54%;
+    height: 720px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    background-color: #f5f5f5;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    padding: 10px;
+
+    > h6 {
+      font-size: 12px;
+      color: #999;
+      margin-bottom: 10px;
+    }
+
+    > ul {
+      > .el-button {
+        width: 100%;
+      }
+
+      > li {
+        margin-bottom: 15px;
+
+        > h5 {
+          font-size: 14px;
+          background-color: #333;
+          color: #fff;
+          line-height: 20px;
+          padding: 10px 100px 10px 55px;
+          position: relative;
+          min-height: 40px;
+
+          > span {
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            background-color: #666;
+            line-height: 20px;
+            font-size: 12px;
+            padding: 10px 0;
+            width: 45px;
+            text-align: center;
+            display: block;
+          }
+
+          .el-switch {
+            position: absolute;
+            right: 35px;
+            top: 10px;
+          }
+
+          a {
+            width: 20px;
+            height: 20px;
+            text-align: center;
+            line-height: 20px;
+            display: block;
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            color: #fff;
+            border-radius: 50%;
+            background-color: #999;
+
+            &:hover {
+              background-color: #F56C6C;
+            }
+          }
+        }
+
+        ol {
+          background-color: #fff;
+
+          > li {
+            border-top: 1px dashed #ddd;
+            padding: 10px;
+
+            > h5 {
+              line-height: 20px;
+              padding: 5px 0 5px;
+            }
+
+            > div {
+              margin-top: 5px;
+
+              > span {
+                margin-right: 5px;
+                color: #999;
+                font-size: 12px;
+              }
+
+              .el-input-number {
+                width: 190px;
+              }
+
+              .el-select {
+                width: 190px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.questionDialog {
+  .el-select {
+    width: 100%;
+  }
+}

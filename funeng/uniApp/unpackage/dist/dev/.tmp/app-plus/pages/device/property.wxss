@@ -1,0 +1,136 @@
+.property {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+  position: relative;
+}
+.property > .title {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+    width: 100%;
+    background: #0355e5;
+    color: #fff;
+    padding-top: 50rpx;
+    position: relative;
+}
+.property > .title > .text {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-flex-wrap: wrap;
+          -ms-flex-wrap: wrap;
+              flex-wrap: wrap;
+      width: 100%;
+      position: absolute;
+      z-index: 10;
+      top: 0;
+      left: 0;
+      right: 0;
+      padding: 5rpx 0;
+      background: #007AFF;
+}
+.property > .title > .text > .device {
+        padding: 0 40rpx;
+        font-size: 30rpx;
+        color: #eee;
+        width: 100%;
+        margin: 0;
+        text-align: center;
+        -webkit-transition: font-size 0.3s;
+        -o-transition: font-size 0.3s;
+        transition: font-size 0.3s;
+        background: #007AFF;
+}
+.property > .content {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+    width: 100%;
+    padding: 0;
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+}
+.property > .content > .chart {
+      height: 650rpx;
+      width: 100%;
+      background-color: #0355e5;
+}
+.property > .content > .propertyList {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-flex-wrap: wrap;
+          -ms-flex-wrap: wrap;
+              flex-wrap: wrap;
+      width: 100%;
+}
+.property > .content > .propertyList > .ul {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-flex-wrap: wrap;
+            -ms-flex-wrap: wrap;
+                flex-wrap: wrap;
+        width: 100%;
+        -webkit-box-pack: start;
+        -webkit-justify-content: flex-start;
+            -ms-flex-pack: start;
+                justify-content: flex-start;
+}
+.property > .content > .propertyList > .ul > .li {
+          display: -webkit-box;
+          display: -webkit-flex;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-flex-wrap: wrap;
+              -ms-flex-wrap: wrap;
+                  flex-wrap: wrap;
+          width: 50%;
+          border: 1rpx solid #ddd;
+          -webkit-box-sizing: border-box;
+                  box-sizing: border-box;
+          padding: 20rpx;
+          position: relative;
+}
+.property > .content > .propertyList > .ul > .li > .value {
+            width: 100%;
+            font-size: 42rpx;
+            color: #333;
+            line-height: 52rpx;
+            text-align: left;
+}
+.property > .content > .propertyList > .ul > .li > .name {
+            width: 100%;
+            font-size: 28rpx;
+            color: #666;
+            line-height: 38rpx;
+            text-align: left;
+}
+.property > .content > .propertyList > .ul > .li > .switch {
+            position: absolute;
+            top: 50%;
+            -webkit-transform: translateY(-50%);
+                -ms-transform: translateY(-50%);
+                    transform: translateY(-50%);
+            right: 10rpx;
+}
+

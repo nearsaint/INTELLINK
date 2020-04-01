@@ -1,0 +1,13 @@
+/*
+ * name: 'public.css';
+ * author: 'NearSaint';
+ * time: '2019';
+ */
+*,
+*:after,
+*:before {
+  box-sizing: border-box ;
+	
+}
+
+

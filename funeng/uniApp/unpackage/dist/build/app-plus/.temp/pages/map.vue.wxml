@@ -1,0 +1,5 @@
+<template name="10badfd4">
+  <view class="_view data-v-6d6e6aa5 map">
+    <map class="_map data-v-6d6e6aa5 map" style="width: 100%; height: 900px;" latitude="{{map.latitude}}" longitude="{{map.longitude}}" markers="{{map.covers}}"></map>
+  </view>
+</template>
