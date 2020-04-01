@@ -1,6 +1,6 @@
 const path = require('path')
 const webpack = require("webpack")
-const resolve = dir => path.join(__dirname, dir) fs 
+const resolve = dir => path.join(__dirname, dir)
 
 module.exports = {
   publicPath: '', // 根域上下文目录
