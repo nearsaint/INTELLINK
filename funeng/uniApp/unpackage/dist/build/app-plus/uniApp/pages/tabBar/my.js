@@ -1,0 +1,13 @@
+
+      !(function(){
+        var uniAppViewReadyCallback = function(){
+          setCssToHead([[2,1],".",[1],"title{display:-webkit-box;display:-webkit-flex;display:flex;width:100%}\n.",[1],"title\x3e.",[1],"bg{position:absolute;top:0;left:0;right:0;background:#007aff;height:",[0,160],";z-index:1}\n.",[1],"title\x3e.",[1],"bg,.",[1],"title\x3e.",[1],"user{display:-webkit-box;display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;flex-wrap:wrap;width:100%}\n.",[1],"title\x3e.",[1],"user{-webkit-box-pack:start;-webkit-justify-content:flex-start;justify-content:flex-start;position:relative;z-index:2;padding:",[0,20],"}\n.",[1],"title\x3e.",[1],"user\x3e.",[1],"avarat{display:block;width:",[0,120],";height:",[0,120],";border-radius:50%;border:",[0,1]," solid #ddd}\n.",[1],"title\x3e.",[1],"user\x3e.",[1],"text{display:-webkit-box;display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;flex-wrap:wrap;padding:0 ",[0,20],"}\n.",[1],"title\x3e.",[1],"user\x3e.",[1],"text\x3e.",[1],"name{display:block;width:100%;color:#fff;font-size:",[0,42],"}\n.",[1],"title\x3e.",[1],"user\x3e.",[1],"text\x3e.",[1],"id{display:block;width:100%;color:#fff;font-size:",[0,28],"}\n.",[1],"title\x3e.",[1],"user\x3e.",[1],"iconfont{position:absolute;top:50%;right:",[0,20],";-webkit-transform:translateY(-50%);transform:translateY(-50%);color:#fff;border:none;outline:none;background:none;font-size:",[0,52],"}\n.",[1],"title\x3e.",[1],"user\x3e.",[1],"iconfont:after{border:none}\n.",[1],"title\x3e.",[1],"user\x3e.",[1],"iconfont.",[1],"hover{color:#ccc}\n.",[1],"ul{margin-top:",[0,20],";border-top:",[0,1]," solid #ddd}\n.",[1],"ul\x3e.",[1],"li{background:none;border-bottom:",[0,1]," solid #ddd;position:relative;width:100%;display:-webkit-box;display:-webkit-flex;display:flex;border-radius:0;font-size:",[0,32],";color:#444;padding-left:",[0,100],";line-height:",[0,88],"}\n.",[1],"ul\x3e.",[1],"li.",[1],"hover{background:#f9f9f9}\n.",[1],"ul\x3e.",[1],"li:after{border:none}\n.",[1],"ul\x3e.",[1],"li\x3e.",[1],"tip{position:absolute;top:0;left:",[0,20],";height:",[0,88],";width:",[0,88],";font-size:",[0,42],";line-height:",[0,88],"}\n.",[1],"ul\x3e.",[1],"li\x3e.",[1],"front{position:absolute;top:50%;right:",[0,20],";-webkit-transform:translateY(-50%);transform:translateY(-50%);font-size:",[0,28],";color:#999}\n",],undefined,{path:"./pages/tabBar/my.wxss"})();
+document.dispatchEvent(new CustomEvent("generateFuncReady", { detail: { generateFunc: $gwx('./pages/tabBar/my.wxml') } }));
+        }
+        if(window.__uniAppViewReady__){
+          uniAppViewReadyCallback()
+        }else{
+          document.addEventListener('uniAppViewReady',uniAppViewReadyCallback)
+        }
+      })();
+      

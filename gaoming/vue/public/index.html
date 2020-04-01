@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <link rel="icon" href="favicon.ico">
+  <title>高明监狱门禁管理系统</title>
+  <style>
+    .rightContainer {
+      display: block;
+      position: fixed;
+      right: -680px;
+      top: 0;
+      bottom: 0;
+      z-index: 1001;
+      width: 660px;
+      background-color: rgba(0, 0, 0, 0.4);
+      transition: right 0.3s;
+    }
+  </style>
+  <script type="text/javascript">
+    function closeCamera() {
+      document.getElementsByTagName("body")[0].classList.remove('hasCamera');
+      let obj = document.getElementById("cam").contentWindow;
+      let Flist = obj.document.getElementById("CamIDText_select");
+      Flist.innerHTML = "";
+    }
+  </script>
+</head>
+
+
+<body>
+  <noscript>
+      <strong>We're sorry but vue doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+    </noscript>
+  <div id="app"></div>
+  <!-- built files will be auto injected -->
+  <div class="rightContainer">
+    <div class="title">
+      <h5><i></i>监视器</h5>
+      <a class="btn" onclick="closeCamera()">关闭</a>
+    </div>
+    <iframe id="cam" class="cam" src="../Vue/html/camera.html"></iframe>
+  </div>
+</body>
+
+</html>

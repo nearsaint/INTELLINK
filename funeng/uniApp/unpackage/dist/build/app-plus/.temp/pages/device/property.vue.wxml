@@ -1,0 +1,44 @@
+<import src="/components/uni/mpvue-echarts/src/echarts.vue.wxml" />
+<template name="47301a34">
+  <view class="_view data-v-1f14cc37 property">
+    <view class="_view data-v-1f14cc37 title">
+      <view class="_view data-v-1f14cc37 {{[scrolling > 20 ? 'scrolling' : '', 'text']}}">
+        <text class="_text data-v-1f14cc37 propertyName">空气温度
+          <text class="_text data-v-1f14cc37 h5">实时</text>
+        </text>
+        <text class="_text data-v-1f14cc37 device">空压机#10003</text>
+      </view>
+    </view>
+    <view class="_view data-v-1f14cc37 content">
+      <view class="_view data-v-1f14cc37 chart">
+        <template canvasId="line" ref="lineChart" data="{{...$root['0'], ...$root[$kk+'940-0'],$root}}" is="0c2e44e5"></template>
+      </view>
+      <view class="_view data-v-1f14cc37 propertyList">
+        <view class="_view data-v-1f14cc37 ul">
+          <view class="_view data-v-1f14cc37 li">
+            <text class="_text data-v-1f14cc37 value">32°</text>
+            <text class="_text data-v-1f14cc37 name">实时值</text>
+          </view>
+          <view class="_view data-v-1f14cc37 li">
+            <text class="_text data-v-1f14cc37 value">30°</text>
+            <text class="_text data-v-1f14cc37 name">平均值</text>
+            <switch class="_switch data-v-1f14cc37 switch" bindchange="handleProxy" data-eventid="{{'RwW-0'}}" data-comkey="{{$k}}" />
+          </view>
+          <view class="_view data-v-1f14cc37 li">
+            <text class="_text data-v-1f14cc37 value">42°</text>
+            <text class="_text data-v-1f14cc37 name">最大值</text>
+            <switch class="_switch data-v-1f14cc37 switch" bindchange="handleProxy" data-eventid="{{'w59-1'}}" data-comkey="{{$k}}" />
+          </view>
+          <view class="_view data-v-1f14cc37 li">
+            <text class="_text data-v-1f14cc37 value">22°</text>
+            <text class="_text data-v-1f14cc37 name">最大值</text>
+            <switch class="_switch data-v-1f14cc37 switch" bindchange="handleProxy" data-eventid="{{'BtP-2'}}" data-comkey="{{$k}}" />
+          </view>
+        </view>
+      </view>
+      <button class="_button data-v-1f14cc37 btn_his">
+        <text class="_text data-v-1f14cc37 iconfont">查询历史</text>
+      </button>
+    </view>
+  </view>
+</template>

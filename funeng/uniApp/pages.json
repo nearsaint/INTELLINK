@@ -1,0 +1,109 @@
+{
+	"pages": [
+		{
+			"path": "pages/login",
+			"style": {
+				"navigationBarTitleText": "智能+ 工业互联网平台",
+				"backgroundColorTop": "#0355e5",
+				"backgroundColorBottom": "#0355e5"
+			}
+		},
+		{
+			"path": "pages/device/property",
+			"style": {
+				"navigationBarTitleText": "参数",
+				"enablePullDownRefresh": true,
+				"backgroundTextStyle": "light"
+			}
+		},
+		{
+			"path": "pages/tabBar/device",
+			"style": {
+				"navigationBarTitleText": "物联",
+				"enablePullDownRefresh": true,
+				"backgroundTextStyle": "light"
+			}
+		},
+		{
+			"path": "pages/device/deviceList",
+			"style": {
+				"navigationBarTitleText": "设备",
+				"enablePullDownRefresh": true,
+				"backgroundTextStyle": "light",
+				"backgroundColor": "#efefef"
+			}
+		},
+		{
+			"path": "pages/tabBar/home",
+			"style": {
+				"navigationBarTitleText": "智能+ 工业互联网平台",
+				"enablePullDownRefresh": true
+			}
+		},
+		{
+			"path": "pages/device/log",
+			"style": {
+				"navigationBarTitleText": "记录",
+				"enablePullDownRefresh": true,
+				"backgroundTextStyle": "light"
+			}
+		},
+		{
+			"path": "pages/tabBar/my",
+			"style": {
+				"navigationBarTitleText": "我的",
+				"backgroundColor": "#f5f5f5"
+			}
+		},
+		{
+			"path": "pages/map",
+			"style": {
+				"navigationBarTitleText": "地图"
+			}
+		}
+	],
+	"tabBar": {
+		"color": "#7A7E83",
+		"selectedColor": "#007AFF",
+		"borderStyle": "black",
+		"backgroundColor": "#ffffff",
+		"list": [
+			{
+				"pagePath":"pages/tabBar/home",
+				"iconPath":"static/image/icon/home.png",
+				"selectedIconPath":"static/image/icon/home_active.png",
+				"text":"首页"
+			},
+			{
+				"pagePath":"pages/tabBar/device",
+				"iconPath":"static/image/icon/device.png",
+				"selectedIconPath":"static/image/icon/device_active.png",
+				"text":"物联"
+			}
+			// {
+			// 	"pagePath": "pages/tabBar/my",
+			// 	"iconPath":"static/image/icon/my.png",
+			// 	"selectedIconPath":"static/image/icon/my_active.png",
+			// 	"text": "我的"
+			// }
+		]
+	},
+	"globalStyle": {
+		"navigationBarTextStyle": "white",
+		"navigationBarTitleText": "智能+ 工业互联网平台",
+		"navigationBarBackgroundColor": "#0355e5",
+		"backgroundColorTop": "#0355e5",
+		"backgroundColorBottom": "#fff",
+		"backgroundColor": "#fff"
+	}
+// 	"condition" : { //模式配置，仅开发期间生效
+// 		"current": 0, //当前激活的模式(list 的索引项)
+// 		"list": [
+// 			{
+// 				"name": "", //模式名称
+// 				"path": "pages/tabBar/device", //启动页面，必选
+// 				"query": "" //启动参数，在页面的onLoad函数里面得到
+// 			}
+// 		]
+// 	}
+}

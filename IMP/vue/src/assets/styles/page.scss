@@ -1,0 +1,20 @@
+@charset "UTF-8";
+
+/*
+ * name: 'page.scss';
+ * author: 'NearSaint';
+ * time: '2019.09';
+ */
+
+@import "_mixin";
+header.routerHeader{
+  margin-bottom: 10px;
+  .el-breadcrumb{
+    background-color: #ddd;
+    padding: 10px 15px;
+  }
+  .el-page-header{
+    padding: 10px 15px;
+      background-color: #fff;
+  }
+}

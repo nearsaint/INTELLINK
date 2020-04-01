@@ -1,0 +1,32 @@
+<template name="273fd715">
+  <view class="_view data-v-3d9a4126 my">
+    <view class="_view data-v-3d9a4126 title">
+      <view class="_view data-v-3d9a4126 bg"></view>
+      <view class="_view data-v-3d9a4126 user">
+        <image class="_image data-v-3d9a4126 avarat" src="/static/avarat.jpeg"></image>
+        <view class="_view data-v-3d9a4126 text">
+          <text class="_text data-v-3d9a4126 name">尒枫</text>
+          <text class="_text data-v-3d9a4126 id">ID:362840</text>
+        </view>
+        <button class="_button data-v-3d9a4126 iconfont" hover-class="hover"></button>
+      </view>
+    </view>
+    <view class="_view data-v-3d9a4126 list ul">
+      <button class="_button data-v-3d9a4126 li" hover-class="hover">
+        <text class="_text data-v-3d9a4126 iconfont tip"></text>
+        <text class="_text data-v-3d9a4126 text">结算</text>
+        <text class="_text data-v-3d9a4126 iconfont front"></text>
+      </button>
+      <button class="_button data-v-3d9a4126 li" hover-class="hover">
+        <text class="_text data-v-3d9a4126 iconfont tip"></text>
+        <text class="_text data-v-3d9a4126 text">授权</text>
+        <text class="_text data-v-3d9a4126 iconfont front"></text>
+      </button>
+      <button class="_button data-v-3d9a4126 li" hover-class="hover">
+        <text class="_text data-v-3d9a4126 iconfont tip"></text>
+        <text class="_text data-v-3d9a4126 text">我的角色</text>
+        <text class="_text data-v-3d9a4126 iconfont front"></text>
+      </button>
+    </view>
+  </view>
+</template>

@@ -1,0 +1,1 @@
+<template name="a9f14c2c"><view class="_view a9f14c2c map"><map class="_map a9f14c2c map" style="width: 100%; height: 900px;" latitude="{{map.latitude}}" longitude="{{map.longitude}}" markers="{{map.covers}}"></map></view></template>

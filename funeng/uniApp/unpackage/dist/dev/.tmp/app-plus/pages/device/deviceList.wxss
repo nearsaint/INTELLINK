@@ -1,0 +1,266 @@
+view {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+.deviceList {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+  position: relative;
+}
+.deviceList > .title {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+    width: 100%;
+    background: #0355e5;
+    padding: 0;
+    color: #fff;
+}
+.deviceList > .title > .text {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-flex-wrap: wrap;
+          -ms-flex-wrap: wrap;
+              flex-wrap: wrap;
+      width: 100%;
+      position: fixed;
+      z-index: 10;
+      top: 0;
+      left: 0;
+      right: 0;
+      padding: 20rpx 0;
+      background: #007AFF;
+}
+.deviceList > .title > .text > .name {
+        padding: 0 40rpx;
+        font-size: 24rpx;
+        color: #eee;
+        width: 100%;
+        margin: 0;
+        text-align: center;
+}
+.deviceList > .title > .chart {
+      width: 100%;
+      height: 460rpx;
+      margin-top: 20rpx;
+      position: relative;
+      z-index: 2;
+}
+.deviceList > .title > .chart > .bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 100%;
+        width: 100%;
+        z-index: 1;
+}
+.deviceList > .title > .chart .mpvue {
+        position: relative;
+        z-index: 2;
+}
+.deviceList > .title > .swiper {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: center;
+      -webkit-justify-content: center;
+          -ms-flex-pack: center;
+              justify-content: center;
+      -webkit-flex-wrap: nowrap;
+          -ms-flex-wrap: nowrap;
+              flex-wrap: nowrap;
+      width: 100%;
+      position: relative;
+      z-index: 2;
+      border-top: 1rpx solid #2980B9;
+      background: #444;
+}
+.deviceList > .title > .swiper > .chooseProperty {
+        height: 80rpx;
+        width: 100%;
+        padding: 0 20px;
+        text-align: center;
+        font-size: 32rpx;
+        color: #fff;
+        line-height: 80rpx;
+        position: relative;
+        z-index: 2;
+}
+.deviceList > .title > .swiper > .btn {
+        width: 50%;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        border: none;
+        border-radius: 0;
+        background: none;
+        color: #fff;
+        line-height: 80rpx;
+        z-index: 1;
+        padding: 0 40rpx;
+        -webkit-transition: all 0.3s;
+        -o-transition: all 0.3s;
+        transition: all 0.3s;
+}
+.deviceList > .title > .swiper > .btn::after {
+          border: none;
+}
+.deviceList > .title > .swiper > .btn.hover {
+          padding: 0 20rpx;
+          color: #ccc;
+}
+.deviceList > .title > .swiper > .btn.btn_left {
+          left: 0;
+          text-align: left;
+}
+.deviceList > .title > .swiper > .btn.btn_right {
+          right: 0;
+          text-align: right;
+}
+.deviceList > .content {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+}
+.deviceList > .content > .count {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-flex-wrap: wrap;
+          -ms-flex-wrap: wrap;
+              flex-wrap: wrap;
+      border-top: 1rpx solid #ddd;
+}
+.deviceList > .content > .count > .title {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: start;
+        -webkit-justify-content: flex-start;
+            -ms-flex-pack: start;
+                justify-content: flex-start;
+        -webkit-flex-wrap: wrap;
+            -ms-flex-wrap: wrap;
+                flex-wrap: wrap;
+        width: 100%;
+        background: #f3f3f3;
+        border-bottom: 1rpx solid #ddd;
+        padding: 20rpx 40rpx;
+}
+.deviceList > .content > .count > .title > .item {
+          width: 100%;
+          font-size: 26rpx;
+          color: #666;
+          line-height: 36rpx;
+}
+.deviceList > .content > .count > .ul {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: start;
+        -webkit-justify-content: flex-start;
+            -ms-flex-pack: start;
+                justify-content: flex-start;
+        -webkit-flex-wrap: wrap;
+            -ms-flex-wrap: wrap;
+                flex-wrap: wrap;
+        width: 100%;
+}
+.deviceList > .content > .count > .ul > .li {
+          border-bottom: 1rpx solid #ddd;
+          position: relative;
+          -webkit-transition: background-color 0.3s;
+          -o-transition: background-color 0.3s;
+          transition: background-color 0.3s;
+          display: -webkit-box;
+          display: -webkit-flex;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-flex-wrap: wrap;
+              -ms-flex-wrap: wrap;
+                  flex-wrap: wrap;
+          -webkit-box-pack: start;
+          -webkit-justify-content: flex-start;
+              -ms-flex-pack: start;
+                  justify-content: flex-start;
+          width: 100%;
+          outline: none;
+          background: none;
+          text-align: left;
+          border-radius: 0;
+}
+.deviceList > .content > .count > .ul > .li::after {
+            background: none;
+            border: none;
+}
+.deviceList > .content > .count > .ul > .li.hover {
+            background-color: #f5f5f5;
+}
+.deviceList > .content > .count > .ul > .li.hover > .iconfont {
+              right: 10rpx;
+              color: #666;
+}
+.deviceList > .content > .count > .ul > .li > .text {
+            padding: 20rpx;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-flex-wrap: wrap;
+                -ms-flex-wrap: wrap;
+                    flex-wrap: wrap;
+            width: 100%;
+}
+.deviceList > .content > .count > .ul > .li > .text > .value {
+              font-size: 36rpx;
+              line-height: 42rpx;
+              margin-bottom: 10rpx;
+              width: 100%;
+              color: #333;
+              font-weight: bold;
+}
+.deviceList > .content > .count > .ul > .li > .text > .tip {
+              font-size: 26rpx;
+              line-height: 38rpx;
+              width: 100%;
+              color: #999;
+}
+.deviceList > .content > .count > .ul > .li > .iconfont {
+            position: absolute;
+            top: 50%;
+            -webkit-transform: translateY(-50%);
+                -ms-transform: translateY(-50%);
+                    transform: translateY(-50%);
+            right: 20rpx;
+            font-size: 36rpx;
+            color: #999;
+            -webkit-transition: color 0.3s , right 0.3s;
+            -o-transition: color 0.3s , right 0.3s;
+            transition: color 0.3s , right 0.3s;
+}
+

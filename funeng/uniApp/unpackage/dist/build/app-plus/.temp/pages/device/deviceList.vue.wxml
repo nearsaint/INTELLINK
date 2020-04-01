@@ -1,0 +1,76 @@
+<import src="/components/uni/mpvue-echarts/src/echarts.vue.wxml" />
+<template name="4ea7ab65">
+  <view class="_view data-v-ccf91714 deviceList">
+    <view class="_view data-v-ccf91714 title">
+      <view class="_view data-v-ccf91714 {{[title.scrolling > 36 ? 'scrolling' : '', 'text']}}">
+        <text class="_text data-v-ccf91714 deviceType">空压机</text>
+        <text class="_text data-v-ccf91714 name">#10003</text>
+      </view>
+      <view class="_view data-v-ccf91714 chart">
+        <image class="_image data-v-ccf91714 bg" src="../../static/image/bg/chart_bg.png"></image>
+        <template canvasId="line" ref="lineChart" data="{{...$root['0'], ...$root[$kk+'nhA-0'],$root}}" is="0c2e44e5"></template>
+      </view>
+      <view class="_view data-v-ccf91714 swiper">
+        <button class="_button data-v-ccf91714 btn btn_left iconfont" hover-class="hover"></button>
+        <button class="_button data-v-ccf91714 btn btn_right iconfont" hover-class="hover"></button>
+        <swiper class="_swiper data-v-ccf91714 chooseProperty" bindchange="handleProxy" circular="true" current="{{title.current}}" data-eventid="{{'SoB-0'}}" data-comkey="{{$k}}">
+          <swiper-item key="1" item-id="1" class="_swiper-item data-v-ccf91714">
+            <text class="_text data-v-ccf91714">参数1</text>
+          </swiper-item>
+          <swiper-item key="2" item-id="2" class="_swiper-item data-v-ccf91714">
+            <text class="_text data-v-ccf91714">参数2</text>
+          </swiper-item>
+          <swiper-item key="3" item-id="3" class="_swiper-item data-v-ccf91714">
+            <text class="_text data-v-ccf91714">参数3</text>
+          </swiper-item>
+          <swiper-item key="4" item-id="4" class="_swiper-item data-v-ccf91714">
+            <text class="_text data-v-ccf91714">参数4</text>
+          </swiper-item>
+          <swiper-item key="5" item-id="5" class="_swiper-item data-v-ccf91714">
+            <text class="_text data-v-ccf91714">参数5</text>
+          </swiper-item>
+        </swiper>
+      </view>
+    </view>
+    <view class="_view data-v-ccf91714 content">
+      <view class="_view data-v-ccf91714 count">
+        <view class="_view data-v-ccf91714 title">
+          <text class="_text data-v-ccf91714 item">种类: 空压机</text>
+          <text class="_text data-v-ccf91714 item">名称: #10003</text>
+          <text class="_text data-v-ccf91714 item">状态: 运行/正常</text>
+          <text class="_text data-v-ccf91714 item">参数总数: 30</text>
+        </view>
+        <view class="_view data-v-ccf91714 ul">
+          <button class="_button data-v-ccf91714 li" hover-class="hover" bindtap="handleProxy" data-eventid="{{'aPy-1'}}" data-comkey="{{$k}}">
+            <view class="_view data-v-ccf91714 text">
+              <text class="_text data-v-ccf91714 value">32°</text>
+              <text class="_text data-v-ccf91714 tip">空气温度</text>
+            </view>
+            <text class="_text data-v-ccf91714 iconfont"></text>
+          </button>
+          <button class="_button data-v-ccf91714 li" hover-class="hover" bindtap="handleProxy" data-eventid="{{'gWa-2'}}" data-comkey="{{$k}}">
+            <view class="_view data-v-ccf91714 text">
+              <text class="_text data-v-ccf91714 value">34°</text>
+              <text class="_text data-v-ccf91714 tip">空气温度2</text>
+            </view>
+            <text class="_text data-v-ccf91714 iconfont"></text>
+          </button>
+          <button class="_button data-v-ccf91714 li" hover-class="hover" bindtap="handleProxy" data-eventid="{{'m1K-3'}}" data-comkey="{{$k}}">
+            <view class="_view data-v-ccf91714 text">
+              <text class="_text data-v-ccf91714 value">382Pa</text>
+              <text class="_text data-v-ccf91714 tip">空气压力</text>
+            </view>
+            <text class="_text data-v-ccf91714 iconfont"></text>
+          </button>
+          <button class="_button data-v-ccf91714 li" hover-class="hover" bindtap="handleProxy" data-eventid="{{'8qy-4'}}" data-comkey="{{$k}}">
+            <view class="_view data-v-ccf91714 text">
+              <text class="_text data-v-ccf91714 value">382Pa</text>
+              <text class="_text data-v-ccf91714 tip">空气压力</text>
+            </view>
+            <text class="_text data-v-ccf91714 iconfont"></text>
+          </button>
+        </view>
+      </view>
+    </view>
+  </view>
+</template>

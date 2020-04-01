@@ -1,0 +1,84 @@
+@charset "UTF-8";
+
+/*
+ * name: 'page.scss';
+ * author: 'NearSaint';
+ * time: '2019.09';
+ */
+
+@import "_mixin";
+
+.boxView {
+  padding: 20px;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.box {
+  background-color: #fff;
+  border-radius: 6px;
+  box-shadow: 0 0 12px #eee;
+  height: 100%;
+
+  > .title {
+    font-size: 13px;
+    color: #999;
+    position: relative;
+    height: 52px;
+    line-height: 52px;
+    padding: 0 15px;
+
+    > .btnContainer {
+      position: absolute;
+      right: 15px;
+      top: 0;
+
+      > a {
+        color: #ddd;
+        margin-left: 20px;
+
+        &:hover {
+          color: #409EFF;
+        }
+
+        &.fa {
+          font-size: 16px;
+        }
+      }
+
+      > .more {
+        &::before {
+          content: 'more';
+        }
+      }
+
+      > .refresh_icon {
+        &::before {
+          content: "\f021";
+        }
+      }
+
+      > .refresh {
+        &::before {
+          content: 'Refresh';
+        }
+      }
+
+      > .isList_icon {
+        &::before {
+          content: "\f009";
+        }
+      }
+
+      > .isLarge_icon {
+        &::before {
+          content: "\f039";
+        }
+      }
+    }
+  }
+
+  > .content {}
+}
