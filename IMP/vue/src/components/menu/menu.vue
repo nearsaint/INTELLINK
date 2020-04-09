@@ -13,7 +13,7 @@
         <span slot="title">首页</span>
       </el-menu-item>
       <el-menu-item index="dashboard">
-        <i class="el-icon-monitor"></i>
+        <i class="el-icon-odometer"></i>
         <span slot="title">驾驶舱</span>
       </el-menu-item>
       <el-submenu index="2">
@@ -26,10 +26,17 @@
         <el-menu-item index="1-3">点检巡检</el-menu-item>
         <el-menu-item index="1-4">设备保养</el-menu-item>
         <el-menu-item index="1-5">维修报修</el-menu-item>
-
-        <!-- <el-menu-item-group title="分组2">
-          <el-menu-item index="1-3">选项3</el-menu-item>
-        </el-menu-item-group> -->
+      </el-submenu>
+      <el-submenu index="3">
+        <template slot="title">
+          <i class="el-icon-data-line"></i>
+          <span slot="title">能源管理</span>
+        </template>
+        <el-menu-item index="power_statistics">能源统计</el-menu-item>
+        <el-menu-item index="power_analysis">能源分析</el-menu-item>
+        <el-menu-item index="power_prediction">能耗预测</el-menu-item>
+        <el-menu-item index="3-4">能源优化</el-menu-item>
+        <el-menu-item index="3-5">异常报警</el-menu-item>
       </el-submenu>
       <!-- <el-menu-item index="3" disabled>
         <i class="el-icon-document"></i>

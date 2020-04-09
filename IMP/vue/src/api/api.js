@@ -29,6 +29,12 @@ export const DASHBOARD_CONTAINER_GS = (data) =>
 export const DEVICE_FS = (data) =>
   http.put('/api/DASHBOARD_CONTAINER_GS', data);
 
+//energy
+export const ENERGY_ORDER_LINE = () =>
+  http.get('/api/GET_ORDER_LINE')
+
+export const ENERGY_STATISTICAL = (order,interval) =>
+  http.get('/api/GET_ENERGY_STATISTICAL?order='+order+'&interval='+interval)
 
 //DATA
 export const DATA_LIST = () =>

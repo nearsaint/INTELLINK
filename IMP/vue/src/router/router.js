@@ -29,6 +29,30 @@ const routes = [{
       return import('../views/device/parts.vue')
     }
   },
+  //能源统计
+  {
+    path: '/power_statistics',
+    name: 'power_statistics',
+    component: function() {
+      return import('../views/power/statistics.vue')
+    }
+  },
+  //能源分析
+  {
+    path: '/power_analysis',
+    name: 'power_analysis',
+    component: function() {
+      return import('../views/power/analysis.vue')
+    }
+  },
+  //能源预测
+  {
+    path: '/power_prediction',
+    name: 'power_prediction',
+    component: function() {
+      return import('../views/power/prediction.vue')
+    }
+  },
   //dashboard 驾驶舱
   {
     path: '/dashboard',

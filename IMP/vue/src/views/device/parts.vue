@@ -39,7 +39,9 @@
       <div class="floatRight">
         <el-input size="small" placeholder="请输入备件明" suffix-icon="el-icon-search">
         </el-input>
-        <el-button type="primary" size="small">上传 Excel</el-button>
+        <el-upload class="upload-demo" action="http://192.168.0.97:5000/book/UPLOAD_FILE">
+          <el-button size="small" type="primary">点击上传</el-button>
+        </el-upload>
       </div>
       <div class="clr">
 
