@@ -2,16 +2,16 @@
 <div class="treatListBox mainBox">
   <ul class="statistics">
     <li>
-      <h3>{{list.length}}</h3>
+      <h3>{{total}}</h3>
       <h6>治疗总数</h6>
     </li>
     <li>
       <h3>{{getIngNum()}}</h3>
-      <h6>疗程中</h6>
+      <h6>当前页疗程中</h6>
     </li>
     <li>
       <h3>{{getEndNum()}}</h3>
-      <h6>已结束</h6>
+      <h6>当前页已结束</h6>
     </li>
   </ul>
   <div class="listBox box">
@@ -42,7 +42,7 @@
           </li>
         </ul> -->
         <ul class="floatRight">
-          <span class="text">总共有{{list.length}}个条目</span>
+          <span class="text">当前页有{{list.length}}个条目</span>
         </ul>
         <div class="clr"></div>
       </div>
@@ -100,7 +100,7 @@
           </ul>
         </li>
       </ul>
-      <el-pagination v-show="list.length>0" class="pagination" background layout="prev, pager, next" :total="list.length">
+      <el-pagination v-show="list.length>0" :page-size="pageSize" :current-page="activePage" @current-change="changePage" class="pagination" background layout="prev, pager, next" :total="total">
       </el-pagination>
     </div>
   </div>
@@ -113,7 +113,11 @@ export default {
     return {
       isList: false,
       list: [],
-      loading: null
+      loading: null,
+      page: 0,
+      activePage: 1,
+      pageSize: 9,
+      total: 0,
     }
   },
   beforeCreate: function() {},
@@ -211,15 +215,25 @@ export default {
     },
     treatment_get: function() {
       let that = this;
-      that.$axios.get('/api/patient').then(function(rel) {
-        console.log(rel)
+      that.$axios.get('/api/patient?page=' + this.activePage + '&size=' + this.pageSize).then(function(rel) {
+        console.log(rel.data)
         if (rel.data.code == 200) {
           that.list = rel.data.items;
+          that.page = rel.data.page;
+          that.total = rel.data.total;
         }
       }).catch(rel => {
         console.log(rel)
       });
     },
+    changePage: function(e) {
+      let that = this;
+      // console.log(e)
+      this.activePage = e
+      // console.log(this.activePage)
+      this.treatment_get()
+    },
+
   },
   computed: {},
   watch: {},
