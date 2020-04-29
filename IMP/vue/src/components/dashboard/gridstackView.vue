@@ -1,7 +1,7 @@
 <template>
 <div class="gridstackView grid-stack">
 
-  <gridstackItemCX></gridstackItemCX>
+  <!-- <gridstackItemCX></gridstackItemCX> -->
   <gridstackItem v-for="(item,index) in list" :class="[lock?'lock':'']" v-model="list[index]" ref="gsitem" :key="index"></gridstackItem>
 </div>
 </template>

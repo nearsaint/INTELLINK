@@ -17,16 +17,16 @@
         <h6>设备总数</h6>
       </li>
       <li style="color: #67C23A">
-        <h3>{{tableData | getSuccess}}</h3>
-        <h6>当前页在用状态</h6>
+        <h3>54</h3>
+        <h6>在用状态</h6>
       </li>
       <li style="color: #E6A23C">
         <h3>{{tableData | getWarning}}</h3>
-        <h6>当前页暂停状态</h6>
+        <h6>暂停状态</h6>
       </li>
       <li style="color: #F56C6C">
         <h3>{{tableData | getDanger}}</h3>
-        <h6>当前页故障状态</h6>
+        <h6>故障状态</h6>
       </li>
     </ul>
     <div class="tool">
@@ -72,7 +72,7 @@
       </el-table-column>
       <el-table-column prop="status" label="状态" width="100">
         <template slot-scope="scope">
-          <el-tag :type="scope.row.status === '在用' ? 'success' : scope.row.status === '故障' ? 'danger' :'warning'" disable-transitions>{{scope.row.status}}</el-tag>
+          <el-tag :type="scope.row.status === 1 ? 'success' : scope.row.status === '故障' ? 'danger' :'warning'" disable-transitions>在用</el-tag>
         </template>
       </el-table-column>
       <el-table-column prop="specification" label="规格型号" width="200">

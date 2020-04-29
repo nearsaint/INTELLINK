@@ -34,10 +34,10 @@ Vue.use(VCharts)
 import IO from 'vue-socket.io'
 import socketIO from 'socket.io-client'
 import * as Socket from 'api/apiSocketio'
-// Vue.use(new IO({
-//   connection: Socket.SOCKET_URL,
-// }))
-// Vue.prototype.$sockets = Socket;
+Vue.use(new IO({
+  connection: Socket.SOCKET_URL,
+}))
+Vue.prototype.$sockets = Socket;
 
 
 // import jQuery
