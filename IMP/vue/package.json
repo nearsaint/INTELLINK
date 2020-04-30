@@ -12,7 +12,7 @@
     "element-ui": "^2.12.0",
     "flex.css": "^1.1.7",
     "gridstack": "^0.6.0",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "jqueryui": "^1.11.1",
     "js-cookie": "^2.2.1",
     "normalize.css": "^8.0.1",
